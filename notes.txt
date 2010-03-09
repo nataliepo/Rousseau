@@ -1,0 +1,28 @@
+
+FREEBIE_2:
+blog url: http://npodrazikfree2.typepad.com/blog/
+blog xid: 6a0120a8e7be76970b0120a8e7be80970b
+username: npodrazik_free2@gmail.com
+
+api endpoints:
+
+basic information: http://api.typepad.com/blogs/6a0120a8e7be76970b0120a8e7be80970b.js
+
+post-assets:
+http://api.typepad.com/blogs/6a0120a8e7be76970b0120a8e7be80970b/post-assets.js
+
+
+
+NATALIE_2:
+
+blog url: http://nataliepo.typepad.com/
+blog xid: 6a00e5539faa3b883300e553bb10b78834
+username: npodrazik@gmail.com
+
+api endpoints:
+
+basic: http://api.typepad.com/blogs/6a00e5539faa3b883300e553bb10b78834.js
+
+post assets:
+http://api.typepad.com/blogs/6a00e5539faa3b883300e553bb10b78834/post-assets.js
+
