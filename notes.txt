@@ -26,3 +26,8 @@ basic: http://api.typepad.com/blogs/6a00e5539faa3b883300e553bb10b78834.js
 post assets:
 http://api.typepad.com/blogs/6a00e5539faa3b883300e553bb10b78834/post-assets.js
 
+
+
+TODO:
+    _ turn on php error msgs on local webserver
+    _ get a freaking object from the json feed. use http://ditio.net/2008/07/17/php-json-and-javascript-usage/ as example

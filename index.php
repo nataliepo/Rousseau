@@ -48,15 +48,15 @@
             $json = curl_exec($ch);
             curl_close($ch);
             
-         /*   if ($json) {
+            if ($json) {
                 var_dump(json_decode($json));
             }
             else {
                 echo "<p>there was a problem with that json feed.</p>";
             }
             
-            */
-            echo "<p>json->{'entries'} is " . get_class($json[0]) . "</p>";
+            
+            echo "<p>json->{'entries'} is " . get_class($json["object"]) . "</p>";
             
             show_entries($json->{'entries'});
             
