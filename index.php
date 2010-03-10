@@ -2,6 +2,17 @@
     <head>
         <title>braided</title>
         
+        <?php
+        
+        function print_as_table($array) {
+            print "<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";
+            foreach(array_keys($array) as $key) {
+                print "<tr><td>$key</td><td>$array[$key]</td></tr>";
+            }
+            print "</tbody></table>";
+        }
+        
+        ?>
     </head>
     
     <body>
@@ -38,10 +49,17 @@
                 // $blog_xid = '6a0120a8e7be76970b0120a8e7be80970b';
                 $blog_xid = '6a0120a7ee9b66970b0120a7ee9b6d970b';
 
+                //    print_as_table($_GET);
               
                 // this is the freebie post with TP comments:
                 // http://freebie.typepad.com/blog/2010/03/bobama.html
-                $post_xid = '6a0120a7ee9b66970b0120a920a705970b';
+//                $post_xid = '6a0120a7ee9b66970b0120a920a705970b';
+                $post_xid = '6a0120a7ee9b66970b0120a921523b970b';
+                
+                if ( ($_SERVER['REQUEST_METHOD'] == 'GET') &&
+                    ( $_GET['xid'] != '')) {
+                        $post_xid = $_GET['xid'];
+                }
 
                 $root_api_url = 'http://api.typepad.com/';
                 $limit = 'max-results=1';
