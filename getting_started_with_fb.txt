@@ -8,7 +8,10 @@
 # References
 http://developers.facebook.com/get_started.php
 http://www.facebook.com/developers/ <-- Lists all your developed apps
+http://developers.facebook.com/tools.php?fbml -- testing out FBML before it goes live.
+http://wiki.developers.facebook.com/index.php/Comments_Box  -- A Comments Box is a standalone social widget for any website or IFrame application. You can use it to easily allow your users to comment on your content -- whether it's for a Web page, article, photo, or other piece of content -- right on your site or application. Then the user can share the comment on Facebook as a Feed story ...
 
+http://forum.developers.facebook.com/viewtopic.php?id=29112 - FAQ about Comments Box. Mostly for third-party FBConnect users.
 
 @nataliepo uid = 515676202
 @liz uid = 1596016764
@@ -24,3 +27,45 @@ http://www.facebook.com/developers/ <-- Lists all your developed apps
     
     Click on the app's name to make sure you "Allow" access to your account.
     
+    
+    
+----- SCRAPPED CODE:
+
+* We don't want to use Messages right now because we don't want to cross-post into another user's stream.
+
+
+
+/*
+$message = 'Check out this cute pic.'; 
+$attachment = array( 'name' => 'i\'m bursting with joy', 
+                    'href' => 'http://icanhascheezburger.com/2009/04/22/funny-pictures-bursting-with-joy/', 
+                    'caption' => '{*actor*} rated the lolcat 5 stars', 
+                    'description' => 'a funny looking cat', 
+                    'properties' => 
+                        array('category' => array( 
+                            'text' => 'humor', 
+                            'href' => 'http://www.icanhascheezburger.com/category/humor'
+                            ), 
+                        'ratings' => '5 stars'
+                    ), 
+                    'media' => array(
+                        array('type' => 'image', 
+                              'src' => 'http://icanhascheezburger.files.wordpress.com/2009/03/funny-pictures-your-cat-is-bursting-with-joy1.jpg',
+                               'href' => 'http://icanhascheezburger.com/2009/04/22/funny-pictures-bursting-with-joy/'
+                              )
+                    ),
+                    'latitude' => '41.4', 
+                    //Let's add some custom metadata in the form of key/value pairs 
+                    'longitude' => '2.19'
+                ); 
+$action_links = array( 
+    array('text' => 'Recaption this', 
+          'href' => 'http://mine.icanhascheezburger.com/default.aspx?tiid=1192742&recap=1#step2')); 
+$attachment = json_encode($attachment); 
+$action_links = json_encode($action_links); 
+$facebook->api_client->stream_publish($message, $attachment, $action_links);
+
+
+$message = 'in ur tubez'; 
+$facebook->api_client->stream_publish($message);
+*/
