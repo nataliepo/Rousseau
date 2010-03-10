@@ -74,8 +74,8 @@ foreach($events->{'entries'} as $entry) {
     echo "<div class='wallkit_frame clearfix'><div class='wallkit_post'>";
     echo "<div class='wallkit_profilepic'><img src='" . get_resized_avatar($entry->author, 35) . "' /></div>";
     echo "<div class='wallkit_postcontent clearfix'><h4><span><a href='" . $entry->author->profilePageUrl . "'>" . $entry->author->displayName . "</a></span></h4>";
-    echo "<fb:comments xid='braided_comments-" .  $entry->urlId . "' can_post='true' candelete='false' returnurl='http://apps.facebook.com/myapp/braided/comments.php'>" . 
-         "<fb:title>" . $entry->title . "</fb:title>";
+    echo "<fb:comments xid='braided_comments-" .  $entry->urlId . "' can_post='true' candelete='false' returnurl='http://apps.facebook.com/myapp/braided/comments.php'>" .      
+         "<fb:title>" . $entry->title . "</fb:title></fb:comments></fb:like>";
 /*    echo "<div class='wallkit_actionset'><a span class='date' href='" . $entry->permalinkUrl  . "'>" . 
         $entry->published . "</a>  · <a href='" . $entry->permalinkUrl . "'>Comments (" . 
         $entry->commentCount . ")</a>  · <a href='" . $entry->permalinkUrl .   "'>Favorites (" . 

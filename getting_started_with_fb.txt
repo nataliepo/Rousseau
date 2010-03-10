@@ -13,9 +13,18 @@ http://wiki.developers.facebook.com/index.php/Comments_Box  -- A Comments Box is
 
 http://forum.developers.facebook.com/viewtopic.php?id=29112 - FAQ about Comments Box. Mostly for third-party FBConnect users.
 
+http://wiki.developers.facebook.com/index.php/Category:FBML_tags -- wiki pages tagged FBML
+
 @nataliepo uid = 515676202
 @liz uid = 1596016764
 
+# Successes
+
+echo "<fb:comments xid='braided_comments-" .  $entry->urlId . "' can_post='true' candelete='false' returnurl='http://apps.facebook.com/myapp/braided/comments.php'>" . 
+      "<fb:title>" . $entry->title . "</fb:title>";
+      
+will let you Comment on an aribitrary object.
+      
 
 * Canvas is exactly what you load when you install the app.
 * tab.php has everything that's important
