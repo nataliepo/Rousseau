@@ -48,17 +48,21 @@
                 
                 $post_assets_url = $root_api_url . 'blogs/' .  $blog_xid . '/post-assets.js?' . 
                                 $limit . '&callback=display_entry';
+                $entry_url = $root_api_url . 'assets/' . $post_xid . '.js?' . 'callback=display_entry';
                 $comments_url = $root_api_url . 'assets/' . $post_xid . '/comments.js?' . 
                             'callback=display_comments'; 
                 
             ?>
-        
-        <!--<p>full URL is <?php echo $post_assets_url; ?></p>-->
+     <!--   
+        <p>All Posts URL is <?php echo $post_assets_url; ?></p>
+        <p>Post URL is <?php echo $entry_url; ?></p>
+        <p>Comments URL is <?php echo $comments_url; ?></p>
+    -->
         
         <script type="text/javascript" src="http://localhost/braided/braided_parser.js"></script>
         
        <div id="braided-entry"></div>
-       <script type="text/javascript" src="<?php echo $post_assets_url; ?>"></script> 
+       <script type="text/javascript" src="<?php echo $entry_url; ?>"></script> 
        
        <div id="braided-comments"></div>
        <script type="text/javascript" src="<?php echo $comments_url; ?>"></script> 
