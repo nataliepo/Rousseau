@@ -1,0 +1,402 @@
+callback({
+   "entries" : [
+      {
+         "author" : {
+            "aboutMe" : null,
+            "avatarLink" : {
+               "height" : 250,
+               "url" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-250si.gif",
+               "urlTemplate" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-{spec}.gif",
+               "width" : 250
+            },
+            "displayName" : "freebie",
+            "id" : "tag:api.typepad.com,2009:6p0120a7ee9b66970b",
+            "interests" : [],
+            "links" : [
+               {
+                  "allowedMethods" : [
+                     "GET"
+                  ],
+                  "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b.js",
+                  "rel" : "self",
+                  "type" : "text/javascript"
+               },
+               {
+                  "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b/elsewhere-accounts.js",
+                  "rel" : "elsewhere-accounts",
+                  "type" : "text/javascript"
+               },
+               {
+                  "href" : "http://profile.typepad.com/freeebie",
+                  "rel" : "alternate",
+                  "type" : "text/html"
+               },
+               {
+                  "height" : 50,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-50si.gif",
+                  "rel" : "avatar",
+                  "width" : 50
+               },
+               {
+                  "height" : 20,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-20si.gif",
+                  "rel" : "avatar",
+                  "width" : 20
+               },
+               {
+                  "height" : 400,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-400wi.gif",
+                  "rel" : "avatar",
+                  "width" : 400
+               },
+               {
+                  "height" : 120,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-120si.gif",
+                  "rel" : "avatar",
+                  "width" : 120
+               },
+               {
+                  "height" : 125,
+                  "href" : "http://profile.typepad.com/services/embed/profile/6p0120a7ee9b66970b/follow_module",
+                  "rel" : "follow-frame-content",
+                  "type" : "text/html",
+                  "width" : 300
+               }
+            ],
+            "location" : null,
+            "objectTypes" : [
+               "tag:api.typepad.com,2009:User"
+            ],
+            "preferredUsername" : "freeebie",
+            "profilePageUrl" : "http://profile.typepad.com/freeebie",
+            "urlId" : "6p0120a7ee9b66970b"
+         },
+         "commentCount" : 0,
+         "commenter" : {
+            "href" : "http://freebie.typepad.com/",
+            "name" : "freebie"
+         },
+         "content" : "what a cute dog! ",
+         "description" : null,
+         "favoriteCount" : 0,
+         "groups" : [],
+         "id" : "tag:api.typepad.com,2009:6a0120a7ee9b66970b01310f87437d970c",
+         "inReplyTo" : {
+            "author" : {
+               "aboutMe" : null,
+               "avatarLink" : {
+                  "height" : 250,
+                  "url" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-250si.gif",
+                  "urlTemplate" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-{spec}.gif",
+                  "width" : 250
+               },
+               "displayName" : "freebie",
+               "id" : "tag:api.typepad.com,2009:6p0120a7ee9b66970b",
+               "interests" : [],
+               "links" : [
+                  {
+                     "allowedMethods" : [
+                        "GET"
+                     ],
+                     "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b.js",
+                     "rel" : "self",
+                     "type" : "text/javascript"
+                  },
+                  {
+                     "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b/elsewhere-accounts.js",
+                     "rel" : "elsewhere-accounts",
+                     "type" : "text/javascript"
+                  },
+                  {
+                     "href" : "http://profile.typepad.com/freeebie",
+                     "rel" : "alternate",
+                     "type" : "text/html"
+                  },
+                  {
+                     "height" : 50,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-50si.gif",
+                     "rel" : "avatar",
+                     "width" : 50
+                  },
+                  {
+                     "height" : 20,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-20si.gif",
+                     "rel" : "avatar",
+                     "width" : 20
+                  },
+                  {
+                     "height" : 400,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-400wi.gif",
+                     "rel" : "avatar",
+                     "width" : 400
+                  },
+                  {
+                     "height" : 120,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-120si.gif",
+                     "rel" : "avatar",
+                     "width" : 120
+                  },
+                  {
+                     "height" : 125,
+                     "href" : "http://profile.typepad.com/services/embed/profile/6p0120a7ee9b66970b/follow_module",
+                     "rel" : "follow-frame-content",
+                     "type" : "text/html",
+                     "width" : 300
+                  }
+               ],
+               "location" : null,
+               "objectTypes" : [
+                  "tag:api.typepad.com,2009:User"
+               ],
+               "preferredUsername" : "freeebie",
+               "profilePageUrl" : "http://profile.typepad.com/freeebie",
+               "urlId" : "6p0120a7ee9b66970b"
+            },
+            "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b0120a920a705970b.js",
+            "id" : "tag:api.typepad.com,2009:6a0120a7ee9b66970b0120a920a705970b",
+            "objectTypes" : [
+               "tag:api.typepad.com,2009:Post"
+            ],
+            "type" : "text/javascript",
+            "urlId" : "6a0120a7ee9b66970b0120a920a705970b"
+         },
+         "links" : [
+            {
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f87437d970c/favorites.js",
+               "rel" : "favorites",
+               "total" : 0,
+               "type" : "text/javascript"
+            },
+            {
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f87437d970c/comments.js",
+               "rel" : "replies",
+               "total" : 0,
+               "type" : "text/javascript"
+            },
+            {
+               "href" : "http://freebie.typepad.com/blog/2010/03/bobama.html?cid=6a0120a7ee9b66970b01310f87437d970c#comment-6a0120a7ee9b66970b01310f87437d970c",
+               "rel" : "alternate",
+               "type" : "text/html"
+            },
+            {
+               "allowedMethods" : [
+                  "GET",
+                  "HEAD",
+                  "OPTIONS"
+               ],
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f87437d970c.js",
+               "rel" : "self",
+               "type" : "text/javascript"
+            }
+         ],
+         "objectTypes" : [
+            "tag:api.typepad.com,2009:Comment"
+         ],
+         "permalinkUrl" : "http://freebie.typepad.com/blog/2010/03/bobama.html?cid=6a0120a7ee9b66970b01310f87437d970c#comment-6a0120a7ee9b66970b01310f87437d970c",
+         "published" : "2010-03-10T15:45:37Z",
+         "textFormat" : "html_convert_linebreaks",
+         "title" : null,
+         "urlId" : "6a0120a7ee9b66970b01310f87437d970c"
+      },
+      {
+         "author" : {
+            "aboutMe" : null,
+            "avatarLink" : {
+               "height" : 250,
+               "url" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-250si.gif",
+               "urlTemplate" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-{spec}.gif",
+               "width" : 250
+            },
+            "displayName" : "freebie_2",
+            "id" : "tag:api.typepad.com,2009:6p0120a8e7be76970b",
+            "interests" : [],
+            "links" : [
+               {
+                  "allowedMethods" : [
+                     "GET"
+                  ],
+                  "href" : "http://api.typepad.com/users/6p0120a8e7be76970b.js",
+                  "rel" : "self",
+                  "type" : "text/javascript"
+               },
+               {
+                  "href" : "http://api.typepad.com/users/6p0120a8e7be76970b/elsewhere-accounts.js",
+                  "rel" : "elsewhere-accounts",
+                  "type" : "text/javascript"
+               },
+               {
+                  "href" : "http://profile.typepad.com/npodrazikfree2",
+                  "rel" : "alternate",
+                  "type" : "text/html"
+               },
+               {
+                  "height" : 50,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-50si.gif",
+                  "rel" : "avatar",
+                  "width" : 50
+               },
+               {
+                  "height" : 20,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-20si.gif",
+                  "rel" : "avatar",
+                  "width" : 20
+               },
+               {
+                  "height" : 400,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-400wi.gif",
+                  "rel" : "avatar",
+                  "width" : 400
+               },
+               {
+                  "height" : 120,
+                  "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/10-120si.gif",
+                  "rel" : "avatar",
+                  "width" : 120
+               },
+               {
+                  "height" : 125,
+                  "href" : "http://profile.typepad.com/services/embed/profile/6p0120a8e7be76970b/follow_module",
+                  "rel" : "follow-frame-content",
+                  "type" : "text/html",
+                  "width" : 300
+               }
+            ],
+            "location" : null,
+            "objectTypes" : [
+               "tag:api.typepad.com,2009:User"
+            ],
+            "preferredUsername" : "npodrazikfree2",
+            "profilePageUrl" : "http://profile.typepad.com/npodrazikfree2",
+            "urlId" : "6p0120a8e7be76970b"
+         },
+         "commentCount" : 0,
+         "commenter" : {
+            "href" : "http://npodrazikfree2.typepad.com/",
+            "name" : "freebie_2"
+         },
+         "content" : "yeah, super super cute. ",
+         "description" : null,
+         "favoriteCount" : 0,
+         "groups" : [],
+         "id" : "tag:api.typepad.com,2009:6a0120a7ee9b66970b01310f8745a2970c",
+         "inReplyTo" : {
+            "author" : {
+               "aboutMe" : null,
+               "avatarLink" : {
+                  "height" : 250,
+                  "url" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-250si.gif",
+                  "urlTemplate" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-{spec}.gif",
+                  "width" : 250
+               },
+               "displayName" : "freebie",
+               "id" : "tag:api.typepad.com,2009:6p0120a7ee9b66970b",
+               "interests" : [],
+               "links" : [
+                  {
+                     "allowedMethods" : [
+                        "GET"
+                     ],
+                     "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b.js",
+                     "rel" : "self",
+                     "type" : "text/javascript"
+                  },
+                  {
+                     "href" : "http://api.typepad.com/users/6p0120a7ee9b66970b/elsewhere-accounts.js",
+                     "rel" : "elsewhere-accounts",
+                     "type" : "text/javascript"
+                  },
+                  {
+                     "href" : "http://profile.typepad.com/freeebie",
+                     "rel" : "alternate",
+                     "type" : "text/html"
+                  },
+                  {
+                     "height" : 50,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-50si.gif",
+                     "rel" : "avatar",
+                     "width" : 50
+                  },
+                  {
+                     "height" : 20,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-20si.gif",
+                     "rel" : "avatar",
+                     "width" : 20
+                  },
+                  {
+                     "height" : 400,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-400wi.gif",
+                     "rel" : "avatar",
+                     "width" : 400
+                  },
+                  {
+                     "height" : 120,
+                     "href" : "http://static.typepad.com/.shared:v47.18:typepad:en_us/default-userpics/19-120si.gif",
+                     "rel" : "avatar",
+                     "width" : 120
+                  },
+                  {
+                     "height" : 125,
+                     "href" : "http://profile.typepad.com/services/embed/profile/6p0120a7ee9b66970b/follow_module",
+                     "rel" : "follow-frame-content",
+                     "type" : "text/html",
+                     "width" : 300
+                  }
+               ],
+               "location" : null,
+               "objectTypes" : [
+                  "tag:api.typepad.com,2009:User"
+               ],
+               "preferredUsername" : "freeebie",
+               "profilePageUrl" : "http://profile.typepad.com/freeebie",
+               "urlId" : "6p0120a7ee9b66970b"
+            },
+            "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b0120a920a705970b.js",
+            "id" : "tag:api.typepad.com,2009:6a0120a7ee9b66970b0120a920a705970b",
+            "objectTypes" : [
+               "tag:api.typepad.com,2009:Post"
+            ],
+            "type" : "text/javascript",
+            "urlId" : "6a0120a7ee9b66970b0120a920a705970b"
+         },
+         "links" : [
+            {
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f8745a2970c/favorites.js",
+               "rel" : "favorites",
+               "total" : 0,
+               "type" : "text/javascript"
+            },
+            {
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f8745a2970c/comments.js",
+               "rel" : "replies",
+               "total" : 0,
+               "type" : "text/javascript"
+            },
+            {
+               "href" : "http://freebie.typepad.com/blog/2010/03/bobama.html?cid=6a0120a7ee9b66970b01310f8745a2970c#comment-6a0120a7ee9b66970b01310f8745a2970c",
+               "rel" : "alternate",
+               "type" : "text/html"
+            },
+            {
+               "allowedMethods" : [
+                  "GET",
+                  "HEAD",
+                  "OPTIONS"
+               ],
+               "href" : "http://api.typepad.com/assets/6a0120a7ee9b66970b01310f8745a2970c.js",
+               "rel" : "self",
+               "type" : "text/javascript"
+            }
+         ],
+         "objectTypes" : [
+            "tag:api.typepad.com,2009:Comment"
+         ],
+         "permalinkUrl" : "http://freebie.typepad.com/blog/2010/03/bobama.html?cid=6a0120a7ee9b66970b01310f8745a2970c#comment-6a0120a7ee9b66970b01310f8745a2970c",
+         "published" : "2010-03-10T15:46:59Z",
+         "textFormat" : "html_convert_linebreaks",
+         "title" : null,
+         "urlId" : "6a0120a7ee9b66970b01310f8745a2970c"
+      }
+   ],
+   "totalResults" : 2
+}
+, null);
