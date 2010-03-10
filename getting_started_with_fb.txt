@@ -1,0 +1,8 @@
+0. Log into Facebook.
+
+1. Go to http://www.facebook.com/developers/ and click 'Set Up New Application'
+
+
+# References
+http://developers.facebook.com/get_started.php
+http://www.facebook.com/developers/
