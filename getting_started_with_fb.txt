@@ -2,7 +2,25 @@
 
 1. Go to http://www.facebook.com/developers/ and click 'Set Up New Application'
 
+2. 
+
 
 # References
 http://developers.facebook.com/get_started.php
-http://www.facebook.com/developers/
+http://www.facebook.com/developers/ <-- Lists all your developed apps
+
+
+@nataliepo uid = 515676202
+@liz uid = 1596016764
+
+
+* Canvas is exactly what you load when you install the app.
+* tab.php has everything that's important
+
+* In order for a Tab to appear on a Page or Profile, you have to add it under your App Settings.
+    Account (upper right corner) => Application Settings
+    "Edit Settings" of your app
+    Click "Add"
+    
+    Click on the app's name to make sure you "Allow" access to your account.
+    

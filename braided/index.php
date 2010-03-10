@@ -70,11 +70,11 @@
                             'callback=display_comments'; 
                 
             ?>
-     <!--   
+            
         <p>All Posts URL is <?php echo $post_assets_url; ?></p>
         <p>Post URL is <?php echo $entry_url; ?></p>
         <p>Comments URL is <?php echo $comments_url; ?></p>
-    -->
+        
         
         <script type="text/javascript" src="http://localhost/braided/braided_parser.js"></script>
         
