@@ -51,9 +51,8 @@
 
                 //    print_as_table($_GET);
               
-                // this is the freebie post with TP comments:
-                // http://freebie.typepad.com/blog/2010/03/bobama.html
-//                $post_xid = '6a0120a7ee9b66970b0120a920a705970b';
+                // this is the freebie post with the fail giraffe as the default.
+                // http://freebie.typepad.com/blog/2010/03/uh-oh.html
                 $post_xid = '6a0120a7ee9b66970b0120a921523b970b';
                 
                 if ( ($_SERVER['REQUEST_METHOD'] == 'GET') &&
