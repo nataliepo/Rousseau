@@ -69,19 +69,39 @@ $events = json_decode($doc);
 </fb:comments>
 */
 
+
 echo "<hr />";
+
+echo "<fb:wall>";
 foreach($events->{'entries'} as $entry) {
+    
+
     echo "<div class='wallkit_frame clearfix'><div class='wallkit_post'>";
     echo "<div class='wallkit_profilepic'><img src='" . get_resized_avatar($entry->author, 35) . "' /></div>";
     echo "<div class='wallkit_postcontent clearfix'><h4><span><a href='" . $entry->author->profilePageUrl . "'>" . $entry->author->displayName . "</a></span></h4>";
+
+//    echo '<fb:share-button class=url"' . $entry->permalinkUrl . '" />';
+
+// This will accurately show and store FB comments! No thumbs up, though.
+    echo '<div class="commentable_item" style="margin-left: 50px; padding-left: 10px">';
+    $comment_str = "fb:comments xid='braided_comments-" .  $entry->urlId . "' can_post='true' candelete='false' returnurl='http://apps.facebook.com/myapp/braided/comments.php'" .      
+         " fb:title" . $entry->title . "/fb:title /fb:comments"; 
+    echo "<p>DEBUG: comment_str = $comment_str</p>";
+    
     echo "<fb:comments xid='braided_comments-" .  $entry->urlId . "' can_post='true' candelete='false' returnurl='http://apps.facebook.com/myapp/braided/comments.php'>" .      
-         "<fb:title>" . $entry->title . "</fb:title></fb:comments></fb:like>";
+              "<fb:title>" . $entry->title . "</fb:title></fb:comments>";  
+    echo '</div>';
+         
+// This echoes the comments/fav count from the Blog API.  Not what we want.
 /*    echo "<div class='wallkit_actionset'><a span class='date' href='" . $entry->permalinkUrl  . "'>" . 
         $entry->published . "</a>  · <a href='" . $entry->permalinkUrl . "'>Comments (" . 
         $entry->commentCount . ")</a>  · <a href='" . $entry->permalinkUrl .   "'>Favorites (" . 
         $entry->favoriteCount  . ")</a></div><fb:share-button class='meta' />";
 */
+
     echo "</div></div></div>";
+
  }
+echo "</fb:wall>";
 
 ?>

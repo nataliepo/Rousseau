@@ -15,6 +15,27 @@ http://forum.developers.facebook.com/viewtopic.php?id=29112 - FAQ about Comments
 
 http://wiki.developers.facebook.com/index.php/Category:FBML_tags -- wiki pages tagged FBML
 
+http://www.facebook.com/pages/edit/?id=358069609094 -- Hobbitted fan page. Impossible to find!!
+http://www.facebook.com/pages/mmmeow/203390667016?v=app_313812023033 -- MMMeow fan page. Also impossible to find!
+http://www.merchantos.com/makebeta/facebook/facebook-php-tutorial/
+
+
+http://wiki.developers.facebook.com/index.php/Random_questions#URLS_in_my_application -- useful ascii drawing of how an application works.
+
+http://wiki.developers.facebook.com/index.php/Category:Example_Code -- Example Code category
+
+
+http://www.facebook.com/HYPERARTS#!/HYPERARTS?v=app_2347471856 -- HYPERARTS facebook fan page has some good advice for FB app devleopment
+
+http://thinkdiff.net/facebook/develop-customize-facebook-application-for-fan-page/ -- fb app developre
+
+
+http://drupal.org/node/715862 -- Drupal examples with FBComments callbacks. Most helpful yet.
+
+http://wiki.developers.facebook.com/index.php/Using_the_Open_Stream_API -- the Stream API.
+
+** To add your custom app to a page, view the About the App page, and then click on "Add to my Page" link under the avatar.  Then, add the tab onto your fan page.
+
 @nataliepo uid = 515676202
 @liz uid = 1596016764
 
@@ -37,6 +58,17 @@ will let you Comment on an aribitrary object.
     Click on the app's name to make sure you "Allow" access to your account.
     
     
+    
+# Failures
+1. using sql code as a callback on a php script. this just isnt working, and I have a feeling it's because of FB
+2. getting a callback to acknowledge any of the comment content posted on a FB event
+    $alpha_post_xid = $_GET['alpha_xid'];
+    _POST also doesnt work, because strangely enough, most of the requests on the callback pages are posts.
+3. using an independent page to load comment content off of an xid
+    $alpha_comments = $facebook->api_client->comments_get($alpha_post_xid);
+    
+
+
     
 ----- SCRAPPED CODE:
 
