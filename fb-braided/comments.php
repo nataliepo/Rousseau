@@ -6,8 +6,8 @@ include('utilities.php');
 
 $user = $_POST['fb_sig_profile_user'];
 require_once 'includes/facebook.php';
-$appapikey = 'ee8e855f33bdb1f255dad718eaf65342';
-$appsecret = 'b97215368c83caedaeab91922d407f51';
+$api_key = 'ee8e855f33bdb1f255dad718eaf65342';
+$secret = 'b97215368c83caedaeab91922d407f51';
 $facebook = new Facebook($api_key, $secret);
 $session_key = md5($facebook->api_client->session_key);
 session_id($session_key);
@@ -46,8 +46,11 @@ function print_as_table($array) {
    
    echo "<p>Beginning alpha comment listing...</p>";
    
+   echo "<p>hello nat-po!  $alpha_comments.count() \n</p>";
+
    echo "<ol>";
-   for ($i = 0; $i < $alpha_comments.count(); $i++) {
+   //for ($i = 0; $i < $alpha_comments.count(); $i++) {
+   for ($i = 0; $i < 5; $i++) {
        echo "<li>" . $alpha_comments[$i] . "</li>";
    }
    echo "</ol>";
