@@ -1,0 +1,49 @@
+APPLICATION INFORMATION:
+--------------------------
+
+LINK TO APP (as a developer):            http://www.facebook.com/developers/#!/developers/apps.php?app_id=366639765016
+LINK TO APP PAGE (as a non-dev): http://www.facebook.com/apps/application.php?id=366639765016
+
+
+
+FRONT PAGE--
+    OWNER:                  nataliepo
+    CANVAS CALLBACK URL:    http://dev3.apperceptive.com/fb-braided/
+    CANVAS URL:             http://apps.facebook.com/braided/
+    FBML/IFRAME:            FBML
+
+AUTHENTICATION SETTINGS--
+    INSTALLABLE TO USERS?   YES
+    INSTALLABLE TO FBPAGES? YES
+    POST_AUTHORIZE CALLBACK URL: (none)
+    POST-REMOVE CALLBACK URL: (none)
+    
+PROFILES SETTINGS--
+    TAB NAME:               Braided
+    TAB URL:                http://apps.facebook.com/braided/tab.php
+    DEFAULT COLUMN:         Wide
+    INFO UPDATE CALLBACK URL: (none)
+    PROFILE PUBLISHER:       (all blank)
+    
+CANVAS SETTINGS--
+    CANVAS PAGE URL:        http://apps.facebook.com/braided/
+    CANVAS CALLBACK URL:    http://dev3.apperceptive.com/fb-braided
+    POST-AUTHORIZE REDIRECT: (none)
+    RENDER METHOD:          FBML
+    IFRAME SIZE:            Smart Size
+    CANVAS WIDTH:           Full
+    QUICK TRANSITIONS:      Off
+    
+CONNECT SETTINGS--
+    (all defaults)
+    
+WIDGETS--
+    ALLOW ANONYMOUS COMMENTS: No
+    (all defaults)
+    
+ADVANCED SETTINGS--
+    (all defaults)
+    
+MIGRATIONS --
+    JSON ENCODING EMPTY ARRAYS: Enabled
+    REMOVE READ_STREAM...:  Enabled

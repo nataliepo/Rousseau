@@ -1,0 +1,22 @@
+1. Create a new Facebook application, using the application_settings.txt as a guideline.  You'll remain on the facebook.com/developers url throughout this process.  NOTE THIS URL as your DEVELOPER APP URL.  
+    Braided DEVELOPER APP URL: http://www.facebook.com/developers/#!/developers/apps.php?app_id=366639765016
+
+2. Click on the link to 'View Application Profile'.  This will take you to a facebook.com/apps/ url.  NOTE THIS URL as your APP PROFILE URL.
+    Braided APP PROFILE URL: http://www.facebook.com/apps/application.php?id=366639765016
+
+3. Now add this application to either your Profile or a Page.
+    To add it to your Profile:
+        a. Go to your Account->Application settings (upper right corner)
+        b. Click 'Edit Settings' under Braided.
+        c. Click 'Add' next to the 'Tab' option.
+        d. Customize who can see this tab with the 'Privacy' option.
+        e. Check whether or not you want to cross-post your activity to your FB wall on the 'Additional Permissions' tab.
+        
+    To add it to a Page:
+        a. Go to your APP PROFILE URL.  
+        b. In the right side, under your app's logo, you should see the option to 'Add to my Page'.
+        c. Choose your page.
+        d. Navigate to your page, and click the "+" on the rightmost tab.  Your new app should be listed.
+        
+    
+    
