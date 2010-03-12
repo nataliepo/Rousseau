@@ -4,6 +4,8 @@
         
         <?php
         
+        
+        
         function print_as_table($array) {
             print "<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";
             foreach(array_keys($array) as $key) {
