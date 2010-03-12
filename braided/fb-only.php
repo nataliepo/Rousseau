@@ -41,9 +41,9 @@
                 
             ?>
             
-        <p>All Posts URL is <?php echo $post_assets_url; ?></p>
+        <!--<p>All Posts URL is <?php echo $post_assets_url; ?></p>
         <p>Post URL is <?php echo $entry_url; ?></p>
-        <p>Comments URL is <?php echo $comments_url; ?></p>
+        <p>Comments URL is <?php echo $comments_url; ?></p> -->
 
 
         <h2>Facebook Comments</h2>
@@ -60,40 +60,43 @@
     
     
      
-    echo "<br /><Br /><br />";
-     echo "<p>Getting alpha_comment listing...</p>";
-//     $alpha_post_xid = 'braided_comments-6a00e5539faa3b883301310f284ed8970c';
+    //     $alpha_post_xid = 'braided_comments-6a00e5539faa3b883301310f284ed8970c';
     $alpha_post_xid = 'braided_comments-' . $post_xid;
      $alpha_comments = $facebook->api_client->comments_get($alpha_post_xid);
 
 
-     echo "<p>Beginning alpha comment listing...</p>";
-
-     echo "<p>hello nat-po!  $alpha_comments.count() \n</p>";
-
-     echo "<ol>";
+//     echo "<ol>"; 
      for ($i = 0; $i < sizeof($alpha_comments); $i++) {
-//     for ($i = 0; $i < 5; $i++) {
-         echo "<li>";
+/*         echo "<li>";
          echo " <br /><br />Full Dump: " . var_dump($alpha_comments[$i]) . " <br />";
-         $user_record = $facebook->api_client->users_getInfo($alpha_comments[$i]['fromid'], 'last_name, first_name, pic_with_logo');
+*/
+         $user_record = $facebook->api_client->users_getInfo($alpha_comments[$i]['fromid'], 'last_name, first_name, pic_with_logo, profile_url');
+
          
          $user_keys = array_keys($user_record[0]);
-         for ($j = 0; $j < sizeof($user_keys); $j++) {
+/*         for ($j = 0; $j < sizeof($user_keys); $j++) {
              echo $user_keys[$j] . " = " . $user_record[0][$user_keys[$j]] . "<br />";
          }
          echo "User record = $user_record <br />";
 
-         echo "Text: " . $alpha_comments[$i]['text'] .  "<br /><br />" ;
+         echo "Text: " . $alpha_comments[$i]['text'] .  "<br /><br />" ; 
+*/                
+        echo 
+'<div class="comment-outer">
+    <div class="comment-avatar">
+        <img src="' . $user_record[0]['pic_with_logo'] . '" />
+    </div>
+    <div class="comment-contents">
+        <p>
+        <a href="' . $user_record[0]['profile_url'] . '">' . $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'] . '</a>
+        said ' . $alpha_comments[$i]['text'] . '</p>
+    </div>
+</div>';
          
-         
-         echo '<img src="' . $user_record[0]['pic_with_logo'] . '" />';
-         
-         echo '<hr />';
 
-         echo "</li>";
+//         echo "</li>";
      }
-     echo "</ol>";
+ //    echo "</ol>";
      
 
 ?>
