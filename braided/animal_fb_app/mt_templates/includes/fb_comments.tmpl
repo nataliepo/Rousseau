@@ -1,0 +1,26 @@
+<?php
+   require_once ('<mt:blogurl>/utilities.php');
+   require_once ('<mt:blogurl>/includes/facebook.php');
+   <mt:include module="api_key_info">
+
+    $alpha_post_xid = 'fb-animals-<mt:entryid>';
+    $alpha_comments = $facebook->api_client->comments_get($alpha_post_xid);
+
+    <mt:ignore>
+
+     for ($i = 0; $i < sizeof($alpha_comments); $i++) {
+         $user_record = $facebook->api_client->users_getInfo($alpha_comments[$i]['fromid'], 'last_name, first_name, pic_with_logo, profile_url');
+     
+        echo 
+'<div class="comment-outer">
+    <div class="comment-avatar">
+        <img src="' . $user_record[0]['pic_with_logo'] . '" />
+    </div>
+    <div class="comment-contents">
+        <p>
+        <a href="' . $user_record[0]['profile_url'] . '">' . $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'] . '</a>
+        said ' . $alpha_comments[$i]['text'] . '</p>
+    </div>
+</div>';
+</mt:ignore>
+?>
