@@ -74,6 +74,9 @@ for ($i = 0; $i < sizeof($alpha_comments); $i++) {
 echo "</ol>";
     
     
+** Full comment object documented here: http://wiki.developers.facebook.com/index.php/Comment_%28FQL%29
+    
+    
 # Failures
 1. using sql code as a callback on a php script. this just isnt working, and I have a feeling it's because of FB
 2. getting a callback to acknowledge any of the comment content posted on a FB event
