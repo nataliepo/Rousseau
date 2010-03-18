@@ -1,10 +1,5 @@
 <?php 
-
-require_once ('utilities.php');
-require_once ('includes/facebook.php');
-
-<mt:include module="api_key_info">
-
+   require_once ('config.php');
 ?>
 
 <mt:include module="fb_css">

@@ -18,12 +18,14 @@ my $response = $ua->post('http://api.typepad.com/blogs/6a00e5539faa3b88330120a94
 
 my $content = $response->content;
 if ($response->is_success) {
-   print STDERR "Response = \"$content\"\n";
+   print "Response = \"$content\"\n";
 }
 else {
-   print STDERR "Response = \"$content\"\n";
+   print "Response = \"$content\"\n";
    die $response->status_line;
 }
+
+print STDERR "*** SCRIPT COMPLETE ***\n";
 
 
 # Comments are here: http://api.typepad.com/assets/6a00e5539faa3b883301310faa730f970c/comments.js

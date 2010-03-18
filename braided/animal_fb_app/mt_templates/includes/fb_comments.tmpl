@@ -1,7 +1,5 @@
 <?php
-   require_once ('<mt:blogurl>/utilities.php');
-   require_once ('<mt:blogurl>/includes/facebook.php');
-   <mt:include module="api_key_info">
+   require_once ('<mt:blogurl>/config.php');
 
     $alpha_post_xid = 'fb-animals-<mt:entryid>';
     $alpha_comments = $facebook->api_client->comments_get($alpha_post_xid);

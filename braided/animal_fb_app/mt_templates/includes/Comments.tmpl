@@ -1,0 +1,59 @@
+<mt:IfCommentsActive>
+<div id="comments" class="comments">
+
+<mt:IfCommentsAccepted>
+<div class="comments-open" id="comments-open">
+    <h2 class="comments-open-header">Comments</h2>
+    <div class="comments-open-content">
+
+       <?php
+
+          foreach ($comments as $comment) {
+             echo '
+       <div class="comment-outer">
+          <div class="comment-avatar">
+             <a href="' . $comment->author->profile_url . '"><img class="avatar" src="' . $comment->author->avatar. '" /></a>
+          </div>
+          <div class="comment-contents">
+             <a href="' . $comment->author->profile_url . '">' . $comment->author->display_name . '</a> wrote <p>' . 
+               $comment->content . '</p> on ' . $comment->time() . '<br />
+          </div>
+       </div>';                  
+          }
+       ?>
+
+       <mt:ignore></mt:ignore>
+      <br /><hr /><br />
+   <font color="red">Here's the TPConnect segment.</font>
+    <!-- start tpc -->
+    <div id="tpc_thread"></div>
+    
+    <div style="display:none;" id="tpc_post_title"><$MTEntryTitle$></div>
+    <div style="display:none;" id="tpc_post_message"><$MTEntryBody$></div>
+    <script type="text/javascript">
+        var TPConnect = {};
+
+        TPConnect.tpc_url = '<$MTEntryPermalink$>';
+        TPConnect.tpc_title = document.getElementById('tpc_post_title').innerHTML;
+        TPConnect.tpc_message = document.getElementById('tpc_post_message').innerHTML;
+    </script>
+    <script type="text/javascript" src="http://profile.typepad.com/services/embed/tpc/6a00e5539faa3b88330120a94362b9970b/embed.js"></script>
+    <script type="text/javascript" src="http://static.typepad.com/.shared/js/profile/blogside.js"></script>
+    <script type="text/javascript">
+      var tp_connect_outer = document.getElementById('tpc_thread');
+      var tp_comment_thread = document.getElementById('tpe-comments-content');
+      
+      // now remove the comment listing from the connect segment
+      tp_connect_outer.removeChild(tp_comment_thread);
+
+    </script>
+    <noscript><a href="http://profile.typepad.com/services/embed/tpc/6a00e5539faa3b88330120a94362b9970b/thread?permalink=<$MTEntryPermalink$>">View the entire comment thread.</a></noscript>
+    </div>
+    
+
+</div>
+<mt:Else>
+<p>Comments are closed.</p>
+</mt:IfCommentsAccepted>
+</div>
+</mt:IfCommentsActive>
