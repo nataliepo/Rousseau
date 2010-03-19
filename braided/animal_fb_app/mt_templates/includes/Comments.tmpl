@@ -7,8 +7,16 @@
     <div class="comments-open-content">
 
        <?php
+         // You can't include an absolute URL, so we have to hack the relative one.
+         require_once ('../../config.php');
 
-          foreach ($comments as $comment) {
+         $tp_entry = new TPConnectEntry('6a00e5539faa3b88330120a94362b9970b', 
+                                        '<mt:entrypermalink>',
+                                        '<mt:entryid>');
+
+         $comments = $tp_entry->braided_comments();      
+
+         foreach ($comments as $comment) {
              echo '
        <div class="comment-outer">
           <div class="comment-avatar">
