@@ -3,7 +3,7 @@
 require_once ('utilities.php');
 
 
-start_fb_session();
+$facebook = start_fb_session();
 //start_db_connection();
 include_local_css();
 	

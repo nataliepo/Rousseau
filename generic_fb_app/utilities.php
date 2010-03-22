@@ -17,6 +17,7 @@ function start_fb_session () {
    session_id($session_key);
    session_start();
    
+   return $facebook;
 }
 
 function start_db_connection() {
@@ -135,6 +136,24 @@ function debug ($msg) {
    if (DEFAULT_DEBUG_MODE) {
       echo '<p class="debug">' . $msg . '</p>';
    }
+}
+
+function post_json ($url, $params) {
+   if ($GLOBALS['debug_mode']) {
+      echo "<p class='request'>[POST_JSON], URL = <a href='$url'>$url</a></p>";
+   }
+
+   $ch = curl_init($url);
+   curl_setopt($ch, CURLOPT_POST, 1);
+   curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+   curl_setopt($ch, CURLOPT_HEADER, 0);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+          "Content-Type: application/json;"));
+
+   return json_decode(curl_exec($ch));
 }
 
 ?>
