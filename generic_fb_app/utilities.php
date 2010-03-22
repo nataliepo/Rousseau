@@ -3,6 +3,7 @@
 require_once ('includes/facebook.php');
 require_once ('config.php');
 require_once ('local_css.php');
+require_once ('rousseau-entry.php');
 
 function get_contents ($entry) {
    return "<h3>Same contents for everybody!</h3>";
@@ -16,13 +17,15 @@ function start_fb_session () {
    session_id($session_key);
    session_start();
    
+}
+
+function start_db_connection() {
    
    // also connect to the local db.
    mysql_connect(DB_HOST,DB_USER,DB_PWD);
    @mysql_select_db(DB_NAME) or die( "Unable to select database '" . DB_NAME . "'.");
    
 }
-
 function clean_up () {
    mysql_close();
 }
@@ -42,13 +45,8 @@ function grab_sites_url ($site_id) {
 }
 
 
-function grab_most_recent_event($site_id) {
-   $query = "select * from posts where site_id=" . $site_id . " limit 1;";
-   $result = mysql_query($query);
-   
-   return mysql_result($result, 0, "content");
-}
 
+/*
 function grab_recent_events ($site_id){
    
 
@@ -61,6 +59,7 @@ function grab_recent_events ($site_id){
    return json_decode($doc);
    
 }
+*/
 
 
 /*****
