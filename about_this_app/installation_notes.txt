@@ -1,8 +1,17 @@
 1. Create a new Facebook application, using the application_settings.txt as a guideline.  You'll remain on the facebook.com/developers url throughout this process.  NOTE THIS URL as your DEVELOPER APP URL.  
     Braided DEVELOPER APP URL: http://www.facebook.com/developers/#!/developers/apps.php?app_id=366639765016
+    Rousseau: http://www.facebook.com/developers/editapp.php?app_id=106566566031325
+
+
 
 2. Click on the link to 'View Application Profile'.  This will take you to a facebook.com/apps/ url.  NOTE THIS URL as your APP PROFILE URL.
     Braided APP PROFILE URL: http://www.facebook.com/apps/application.php?id=366639765016
+    ROUSSEAU Profile URL:
+http://www.facebook.com/apps/application.php?id=106566566031325
+
+
+Q: WHY DOESNT MY NEW APP SHOW UP IN MY SETTINGS RIGHT AWAY?  
+A: It may need to propagate.  Add it to your Page first.
 
 3. Now add this application to either your Profile or a Page.
     To add it to your Profile:

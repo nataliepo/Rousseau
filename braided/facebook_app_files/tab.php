@@ -124,7 +124,7 @@ img.connected {
 
 </style>
 
-<h1>Recently on <a href="http://nataliepo.typepad.com/hobbitted>Hobbited</a>...</h1>
+<h1>Recently on <a href="http://nataliepo.typepad.com/hobbitted">Hobbitted</a>...</h1>
 
 <?php 
 
