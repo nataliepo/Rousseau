@@ -4,6 +4,10 @@ require_once ('includes/facebook.php');
 require_once ('config.php');
 require_once ('local_css.php');
 
+function get_contents ($entry) {
+   return "<h3>Same contents for everybody!</h3>";
+}
+
 function start_fb_session () {
 
    $user = $_POST['fb_sig_profile_user'];
@@ -37,19 +41,25 @@ function grab_sites_url ($site_id) {
    return $url;
 }
 
+
+function grab_most_recent_event($site_id) {
+   $query = "select * from posts where site_id=" . $site_id . " limit 1;";
+   $result = mysql_query($query);
+   
+   return mysql_result($result, 0, "content");
+}
+
 function grab_recent_events ($site_id){
    
+
    $json_url = grab_sites_url ($site_id);
    
-//   debug ("Grabbing JSON for URL $json_url"); 
-   $freebie_url = 'http://api.typepad.com/blogs/6a00e5539faa3b88330120a7aa0fdb970b/post-assets.json?max-results=5';
    $handle = fopen($json_url, "rb");
-
-   //$handle = fopen($freebie_url, "rb");
 
    $doc = stream_get_contents($handle);
 
    return json_decode($doc);
+   
 }
 
 

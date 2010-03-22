@@ -19,20 +19,44 @@ include_local_css();
       $site_id = $_POST['rousseau_id'];
    }
 
-$events = grab_recent_events($site_id);
 
 
+
+//$events = grab_recent_events($site_id);
+$event = grab_most_recent_event($site_id);
+
+//foreach ($events->{'entries'} as $entry) {
+   echo "
+<div class='wallkit_frame clearfix'>
+   <div class='wallkit_post'>";
+   
+   // this should just be the post snippet.
+   echo $event;
+   
+   echo "
+      <div class='commentable_item'>
+         <fb:comments xid='braided-XXXX' can_post='true' candelete='false'>
+         </fb:comments>
+      </div>";
+      
+   // close the divs.
+   echo "
+   </div>
+</div>";
+//}
+
+/*
 foreach($events->{'entries'} as $entry) {
     echo 
 "<div class='wallkit_frame clearfix'>
     <div class='wallkit_post'>
         <div class='wallkit_profilepic'>
             <img src='" . get_resized_avatar($entry->author, 35) . "' />
-        </div>
+        </div>" . 
         
-        <div class='wallkit_postcontent clearfix'>
+//        <div class='wallkit_postcontent clearfix'>
         
-            <h4><span><a href='" . $entry->author->profilePageUrl . "'>" . $entry->author->displayName . "</a></span></h4>
+            "<h4><span><a href='" . $entry->author->profilePageUrl . "'>" . $entry->author->displayName . "</a></span></h4>
             <div class='braided_entry_outer'>";
         
         $thumbnail = get_first_thumbnail($entry->embeddedImageLinks);
@@ -56,15 +80,13 @@ foreach($events->{'entries'} as $entry) {
             
             <div class='commentable_item'>
                <fb:comments xid='braided_comments-" . $entry->urlId . "' can_post='true' candelete='false'>" .
-                    /* <fb:title>" . 
-                        get_title($entry) .  
-                    "</fb:title> */
-"              </fb:comments>
-            </div>
-         </div>
+"              </fb:comments>" . 
+//            </div>
+         "</div>
     </div>
 </div>";
  }
+ */
 
 
 clean_up();
