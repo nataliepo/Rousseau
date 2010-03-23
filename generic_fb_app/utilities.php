@@ -10,8 +10,10 @@ function get_contents ($entry) {
 }
 
 function start_fb_session () {
-
-   $user = $_POST['fb_sig_profile_user'];
+   if (array_key_exists('fb_sig_profile_user', $_POST)) {
+      $user = $_POST['fb_sig_profile_user'];
+   }
+   
    $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_SECRET);
    $session_key = md5($facebook->api_client->session_key);
    session_id($session_key);

@@ -13,13 +13,22 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //   debug ("this is a POST request.");
    //$xid = $_GET['xid'];
    $url = $_POST['url'];
-   $site_url = $_POST['site_url'];
-   $content = $_POST['content'];
-   $post = new Post($url, $_POST['site_url'], $_POST['content'], $_POST['timestamp']);
+
+   debug ("url = $url");
+   if (array_key_exists('content', $_POST)) {
+      $content = $_POST['content'];
+      $site_url = $_POST['site_url'];
+      
+      $post = new Post($url, $_POST['site_url'], $_POST['content'], $_POST['timestamp']);
+   }
+   else {
+      $post = new Post ($url);
+   }
    
    
    if ($post) {
       $xid = $post->get_fb_xid();
+      debug ("Facebook XID = $xid");
       $alpha_comments = $facebook->api_client->comments_get($post->get_fb_xid());
 
         // printing the JSON-formatted comments now.

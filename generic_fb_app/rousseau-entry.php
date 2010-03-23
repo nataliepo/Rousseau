@@ -13,11 +13,11 @@ class Post {
    function Post ($permalink, $site_url='', $content='', $timestamp='') {
       
       $query = "select * from posts where permalink='" . $permalink . "';";
-      
+//      debug ("[Post::Post] query = $query");
       $result = mysql_query($query);
 
       if (!mysql_num_rows($result)) {
-         debug ("Result for url $site_url was null.");
+//         debug ("Result for url $site_url was null.");
          $this->create_post_row($permalink, $site_url, $content, $timestamp);
         
          $query = "select * from posts where permalink='" . $permalink . "';";
@@ -25,6 +25,7 @@ class Post {
       }
       else {
          // don't update the row for now.
+//         debug ("That URL was located in the posts table.");
       }
       
       $this->id = mysql_result($result, 0, "id");
@@ -42,7 +43,7 @@ class Post {
       $query = "select * from sites where content_url='" . $site_url . "';";
       $result = mysql_query($query);
       if (!mysql_result($result, 0, "id")) {
-         debug ("The site $site_url does not exist; dying for now.");
+//         debug ("The site $site_url does not exist; dying for now.");
       }
       
       $site_id = mysql_result($result, 0, "id");
