@@ -75,8 +75,8 @@ class TPCommentListing {
 class FBCommentListing {
    var $fb_comments;
    
-   function FBCommentListing ($fb_id) {
-      $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
+   function FBCommentListing ($fb_id, $facebook) {
+//      $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
       $comments = $facebook->api_client->comments_get($fb_id);
 
       $num_comments = sizeof($comments);

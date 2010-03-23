@@ -9,13 +9,18 @@
       MTConnect Blog:
          http://localhost/rousseau/generic_fb_app/comments.php?blog_xid=6a00e5539faa3b88330120a94362b9970b&permalink=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php&fb_id=fb-animals-60
    
+   
+      MTConnectBlog:
+         http://dev3.apperceptive.com/rousseau/comments.php?blog_xid=6a00e5539faa3b88330120a94362b9970b&permalink=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php&fb_id=fb-animals-60&HTML=1
+      
+      Standard TypePad Blog:
+         http://dev3.apperceptive.com/rousseau/comments.php?xid=6a00e5539faa3b883301310f284ed8970c&permalink=http://nataliepo.typepad.com/hobbitted/2010/02/some-ill-shit-is-overdue-in-the-hobbit-right-about-now.html&fb_prefix=braided_comments-&HTML=1
 
 */
 require_once ('rousseau-includes/rousseau-utilities.php');
 
 
-$facebook = start_fb_session();
-//start_db_connection();
+start_db_connection();
 
 
 //$post = new Post($_POST);
@@ -23,6 +28,22 @@ $post = new Post($_GET);
 $comments = $post->comments();
 
 
+
+if ($_GET['HTML']) {
+   foreach ($comments as $comment){
+   echo
+   '   <div class="comment-outer">
+         <div class="comment-avatar">
+            <a href="' . $comment->author->profile_url . '"><img class="avatar" src="' . $comment->author->avatar. '" /></a>
+         </div>
+         <div class="comment-contents">
+            <a href="' . $comment->author->profile_url . '">' . $comment->author->display_name . '</a>
+            wrote <p>' . $comment->content . '</p> on ' . $comment->timestamp->print_readable_time() . '<br />' .
+         '</div>
+      </div>';
+   }
+}
+else {
    echo 
 '{
 "comments" : [
@@ -54,6 +75,7 @@ $comments = $post->comments();
      echo '
         ]
      }';   
+}
 
 /*
 function print_as_table($array) {
@@ -76,7 +98,7 @@ function print_as_table($array) {
    
    
 */   
-//clean_up();
+clean_up();
 
   ?>
   

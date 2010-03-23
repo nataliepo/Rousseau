@@ -13,13 +13,16 @@ function get_contents ($entry) {
    return "<h3>Same contents for everybody!</h3>";
 }
 
-function start_fb_session () {
+function start_fb_session ($api_key, $api_secret) {
+   
+   debug ("[start_fb_session] api_key = $api_key, secret = $api_secret");
+   
    if (array_key_exists('fb_sig_profile_user', $_POST)) {
       $user = $_POST['fb_sig_profile_user'];
    }
    
    //global $facebook, $session_key, $api_key, $call_id, $format, $v;
-   $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
+   $facebook = new Facebook($api_key, $api_secret);
    $session_key = md5($facebook->api_client->session_key);
    session_id($session_key);
    session_start(); 
@@ -234,4 +237,7 @@ function get_fb_date($timestamp) {
        $this->min    =  date("i", $timestring);
        $this->sec    =  date("s", $timestring);*/
 }
+
+
+
 ?>

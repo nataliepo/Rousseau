@@ -14,8 +14,10 @@
    
 /* these are for the mt connect demo vars. */
 
-   define ("FACEBOOK_API_KEY", "336fb869587da7159dc0c56337183c3d");
+/*   define ("FACEBOOK_API_KEY", "336fb869587da7159dc0c56337183c3d");
    define ("FACEBOOK_API_SECRET", "d3db6494609e56aec9bf3392f69aff40");   
+*/
+
 
    define ("DB_NAME", "rousseau");
    define ("DB_HOST", "localhost");
