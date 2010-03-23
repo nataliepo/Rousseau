@@ -31,6 +31,11 @@ class Post {
 
       }
       
+      if (array_key_exists('fb_prefix', $params) &&
+         array_key_exists('xid', $params)) {
+         $this->fb_id = $params['fb_prefix'] . $params['xid'];   
+
+      }
       if (array_key_exists('fb_id', $params)) {
          $this->fb_id = $params['fb_id'];
       }

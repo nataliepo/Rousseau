@@ -2,7 +2,7 @@
 
    /*
       USE THIS URL AS AN EXAMPLE:
-      http://localhost/rousseau/generic_fb_app/typepad_comments.php?xid=6a00e5539faa3b883301310f284ed8970c&url=http://nataliepo.typepad.com/hobbitted/2010/02/some-ill-shit-is-overdue-in-the-hobbit-right-about-now.html&fb_prefix=braided_comments-
+      http://localhost/rousseau/generic_fb_app/typepad_comments.php?xid=6a00e5539faa3b883301310f284ed8970c&permalink=http://nataliepo.typepad.com/hobbitted/2010/02/some-ill-shit-is-overdue-in-the-hobbit-right-about-now.html&fb_prefix=braided_comments-   
    */
 
 ?>
@@ -42,9 +42,8 @@ $params['xid']  = $xid;
 $params['permalink'] = $url;
 
 if (array_key_exists('fb_prefix', $_GET)) {
-   $params['fb_id'] = $_GET['fb_prefix'] . $xid;   
 }
-$entry = new Post($params);
+$entry = new Post($_GET);
 
 $comments = $entry->comments();
 ?>

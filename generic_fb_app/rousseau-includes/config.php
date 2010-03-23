@@ -7,14 +7,15 @@ These are for the vanilla rousseau demos.
    */
    
    /* these are for the tp_blog_demo variables. */
-/*   define ("FACEBOOK_API_KEY", "ee8e855f33bdb1f255dad718eaf65342");
+   define ("FACEBOOK_API_KEY", "ee8e855f33bdb1f255dad718eaf65342");
    define ("FACEBOOK_API_SECRET", "b97215368c83caedaeab91922d407f51");
-   */
+
    
 /* these are for the mt connect demo vars. */
+/*
    define ("FACEBOOK_API_KEY", "336fb869587da7159dc0c56337183c3d");
    define ("FACEBOOK_API_SECRET", "d3db6494609e56aec9bf3392f69aff40");   
-   
+*/   
    define ("DB_NAME", "rousseau");
    define ("DB_HOST", "localhost");
    define ("DB_PWD", "four");
