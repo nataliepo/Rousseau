@@ -140,9 +140,7 @@ function chop_str ($str, $size) {
    return $curr . "...";
 }
 
-function print_timestamp ($datetime) {
-   return $datetime->format('F d, Y g:ia');
-}
+
 
 function debug ($msg) {
    if (DEFAULT_DEBUG_MODE) {
@@ -214,5 +212,25 @@ function get_entry_api_url ($xid) {
 
 function get_comments_api_url ($xid) {
      return ROOT_TYPEPAD_API_URL . '/assets/' . $xid . '/comments.json';
+}
+
+function get_tpconnect_external_assets_api_url($xid) {
+   return ROOT_TYPEPAD_API_URL . '/blogs/' . $xid . '/discover-external-post-asset.json';
+}
+
+function print_timestamp ($datetime) {
+   return $datetime->format('F d, Y g:ia');
+}
+
+function get_fb_date($timestamp) {
+   return date("F d, Y g:ia", $timestamp);        
+
+/*
+   return date("Y", $timestring);
+       $this->month  =  date("m", $timestring);
+       $this->day    =  date("d", $timestring);
+       $this->hour   =  date("H", $timestring);
+       $this->min    =  date("i", $timestring);
+       $this->sec    =  date("s", $timestring);*/
 }
 ?>

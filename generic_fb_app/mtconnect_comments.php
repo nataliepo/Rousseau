@@ -1,12 +1,12 @@
 <?php
 
-   /*
-      USE THIS URL AS AN EXAMPLE:
-      http://localhost/rousseau/generic_fb_app/typepad_comments.php?xid=6a00e5539faa3b883301310f284ed8970c&url=http://nataliepo.typepad.com/hobbitted/2010/02/some-ill-shit-is-overdue-in-the-hobbit-right-about-now.html&fb_prefix=braided_comments-
+   /* EXPECTED USAGE HERE:
+      blog_xid=6a00e5539faa3b88330120a94362b9970b
+      url=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php
+      fb_id=fb-animals-60
    */
 
-?>
-<html>
+?><html>
    <head>
       <title>TypePad Comment Testing.</title>
       
@@ -27,23 +27,15 @@ $xid = '6a00e5539faa3b88330120a7b004e2970b';
 $url = 'http://www.typepad.com';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-   $xid = $_GET['xid'];
+   $blog_xid = $_GET['blog_xid'];
    $url = $_GET['url'];
+   $fb_id = $_GET['fb_id'];
 }
-else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   $xid = $_POST['xid'];
-   $url = $_POST['url'];
-   $fb_prefix = $_POST['fb_prefix'];   
-}
-
 
 $params = array();
-$params['xid']  = $xid;
-$params['permalink'] = $url;
-
-if (array_key_exists('fb_prefix', $_GET)) {
-   $params['fb_id'] = $_GET['fb_prefix'] . $xid;   
-}
+$params['blog_xid']  = $_GET['blog_xid'];
+$params['permalink'] = $_GET['url'];
+$params['fb_id'] = $_GET['fb_id'];
 $entry = new Post($params);
 
 $comments = $entry->comments();

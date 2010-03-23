@@ -14,13 +14,11 @@ class Comment {
       // source must be defined.
       
       $this->source = $source;
-
       
       if (array_key_exists('json', $params)) {
          $this->content = $params['json']->content;
          $this->xid = $params['json']->urlId;
-         
-         
+                  
          $date =  new DateTime($params['json']->published);
          $this->timestamp = print_timestamp($date);
          
@@ -74,8 +72,11 @@ class FBCommentListing {
    function FBCommentListing ($fb_id) {
       $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
       $comments = $facebook->api_client->comments_get($fb_id);
-   
-      $num_comments = sizeof($comments);
+
+      debug ("num_comments = $num_comments");
+      if (!$num_comments) {
+         return;
+      }
       
       for ($i = 0; $i < $num_comments; $i++) {
          $user_record = $facebook->api_client->users_getInfo($comments[$i]['fromid'], 
@@ -83,11 +84,11 @@ class FBCommentListing {
 
          $param = array();
          $param['content'] = $comments[$i]['text'];
-         $param['timestamp'] = $comments[$i]['time'];
+         $param['timestamp'] = get_fb_date($comments[$i]['time']);
          
          $author = array();
-         $author['displayName'] = $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'];
-         $author['profilePageUrl'] = $user_record[0]['profile_url'];
+         $author['display_name'] = $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'];
+         $author['profile_url'] = $user_record[0]['profile_url'];
          $author['avatar'] = $user_record[0]['pic_with_logo'];
          
          $param['author'] = $author;

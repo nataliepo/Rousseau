@@ -1,8 +1,6 @@
 <?php
    require_once('rousseau-includes/rousseau-utilities.php');
 
-   
-
 class Post {
    var $id;
    var $xid;
@@ -29,7 +27,7 @@ class Post {
          $this->content = "<P>Dummy content for XID=" . $params['xid'] . " for now.</p>";
          $this->timestamp = '2010-03-14 14:29:25';
          
-         $entry_json = pull_json(get_entry_api_url($params['xid']));
+         //$entry_json = pull_json(get_entry_api_url($params['xid']));
 
       }
       
@@ -37,10 +35,15 @@ class Post {
          $this->fb_id = $params['fb_id'];
       }
       
+      if (array_key_exists('blog_xid', $params)) {
+         $json = '{"permalinkUrl":"' . $params['permalink'] . '"}';
+         
+         $post_url = get_tpconnect_external_assets_api_url($params['blog_xid']);
+         $events = post_json($post_url, $json);
+      //      var_dump($events);
+         $this->xid = $events->asset->urlId;
+      }
       $this->comment_listing = array();
-      
-      
-      
    }
    
    
