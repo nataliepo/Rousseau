@@ -73,7 +73,8 @@ class FBCommentListing {
       $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
       $comments = $facebook->api_client->comments_get($fb_id);
 
-      debug ("num_comments = $num_comments");
+      $num_comments = sizeof($comments);
+
       if (!$num_comments) {
          return;
       }
