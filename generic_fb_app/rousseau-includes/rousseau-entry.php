@@ -9,8 +9,6 @@ class Post {
    var $blog_xid;
    var $fb_id;
 
-   var $content;
-   var $timestamp;
    
    var $comment_listing;
       
@@ -23,9 +21,7 @@ class Post {
          $this->xid = $params['xid'];
          $this->permalink = $params['permalink'];
          $this->blog_xid = 0;
-         
-         $this->content = "<P>Dummy content for XID=" . $params['xid'] . " for now.</p>";
-         $this->timestamp = '2010-03-14 14:29:25';
+      
          
          //$entry_json = pull_json(get_entry_api_url($params['xid']));
 
@@ -78,7 +74,7 @@ class Post {
    function sort_comments () {
       $final_array = array();
       foreach ($this->comment_listing as $comment) {
-         $final_array[$comment->timestamp] = $comment;
+         $final_array[$comment->timestamp->print_sortable_time()] = $comment;
       }
       
       krsort($final_array);

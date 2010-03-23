@@ -1,5 +1,16 @@
 <?php
 
+
+/* EXAMPLES:
+   
+      Standard TypePad Blog:
+         http://localhost/rousseau/generic_fb_app/typepad_comments.php?xid=6a00e5539faa3b883301310f284ed8970c&permalink=http://nataliepo.typepad.com/hobbitted/2010/02/some-ill-shit-is-overdue-in-the-hobbit-right-about-now.html&fb_prefix=braided_comments-   
+      
+      MTConnect Blog:
+         http://localhost/rousseau/generic_fb_app/comments.php?blog_xid=6a00e5539faa3b88330120a94362b9970b&permalink=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php&fb_id=fb-animals-60
+   
+
+*/
 require_once ('rousseau-includes/rousseau-utilities.php');
 
 
@@ -26,7 +37,7 @@ $comments = $post->comments();
          echo 
 '  {
    "content": "' . $comment->content . '",
-   "timestamp": "' . $comment->timestamp . '",
+   "timestamp": "' . $comment->timestamp->print_readable_time() . '",
    "author": {
       "displayName": "' . $comment->author->display_name . '",
       "profilePageUrl": "' . $comment->author->profile_url . '",

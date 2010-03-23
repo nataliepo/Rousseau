@@ -2,7 +2,7 @@
 
    /* EXPECTED USAGE HERE:
       blog_xid=6a00e5539faa3b88330120a94362b9970b
-      url=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php
+      permalink=http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sea-otter.php
       fb_id=fb-animals-60
    */
 

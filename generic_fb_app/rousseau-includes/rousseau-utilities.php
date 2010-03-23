@@ -6,6 +6,7 @@ require_once ('local_css.php');
 require_once ('rousseau-entry.php');
 require_once ('rousseau-comments.php');
 require_once ('rousseau-authors.php');
+require_once ('rousseau-date.php');
 
 
 function get_contents ($entry) {

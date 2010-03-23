@@ -19,8 +19,9 @@ class Comment {
          $this->content = $params['json']->content;
          $this->xid = $params['json']->urlId;
                   
-         $date =  new DateTime($params['json']->published);
-         $this->timestamp = print_timestamp($date);
+//         $date =  new DateTime($params['json']->published);
+//         $this->timestamp = print_timestamp($date);
+         $this->timestamp = new RousseauDate($params['json']->published);
          
          $author_params = array();
          $author_params['json'] = $params['json']->author;
@@ -29,11 +30,16 @@ class Comment {
       
       else {
          // otherwise, use the param keys to insert the comment data.
-          $keys = array('content', 'timestamp');
+          $keys = array('content', );
+          // treat 'timestamp' separately
           foreach ($keys as $key) {
              if (array_key_exists($key, $params)) {
                 $this->$key = $params[$key];
              }
+          }
+          
+          if (array_key_exists('timestamp', $params)) {
+             $this->timestamp = new RousseauDate($params['timestamp']);
           }
           
           // check if there's an author.
@@ -85,7 +91,8 @@ class FBCommentListing {
 
          $param = array();
          $param['content'] = $comments[$i]['text'];
-         $param['timestamp'] = get_fb_date($comments[$i]['time']);
+//         $param['timestamp'] = get_fb_date($comments[$i]['time']);
+         $param['timestamp'] = $comments[$i]['time'];
          
          $author = array();
          $author['display_name'] = $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'];
