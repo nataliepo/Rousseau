@@ -26,7 +26,8 @@ echo '
       "id": "' . $events[$i]->id . '",
       "site_id": "' . $events[$i]->site_id . '",
       "content": "' . $events[$i]->content . '",
-      "timestamp": "' . $events[$i]->timestamp . '"
+      "timestamp": "' . $events[$i]->timestamp . '",
+      "xid": "' . $events[$i]->get_fb_xid() . '"
    }';
    if ($i != ($num_events -1)) {
       echo ",";

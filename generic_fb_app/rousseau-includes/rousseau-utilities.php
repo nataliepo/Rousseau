@@ -1,9 +1,12 @@
 <?php
 
-require_once ('includes/facebook.php');
+require_once ('fb-includes/facebook.php');
 require_once ('config.php');
 require_once ('local_css.php');
 require_once ('rousseau-entry.php');
+require_once ('rousseau-comments.php');
+require_once ('rousseau-authors.php');
+
 
 function get_contents ($entry) {
    return "<h3>Same contents for everybody!</h3>";
@@ -14,11 +17,19 @@ function start_fb_session () {
       $user = $_POST['fb_sig_profile_user'];
    }
    
+   //global $facebook, $session_key, $api_key, $call_id, $format, $v;
    $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_SECRET);
    $session_key = md5($facebook->api_client->session_key);
    session_id($session_key);
-   session_start();
-   
+   session_start(); 
+
+   /*
+   $api_key = FACEBOOK_API_KEY;
+   $call_id = microtime(true);
+   $format = "JSON";
+   $v = "1.0";
+   */
+      
    return $facebook;
 }
 
@@ -141,7 +152,7 @@ function debug ($msg) {
 }
 
 function post_json ($url, $params) {
-   if ($GLOBALS['debug_mode']) {
+   if (DEFAULT_DEBUG_MODE) {
       echo "<p class='request'>[POST_JSON], URL = <a href='$url'>$url</a></p>";
    }
 
@@ -158,4 +169,51 @@ function post_json ($url, $params) {
    return json_decode(curl_exec($ch));
 }
 
+
+function get_comments_wrapper($facebook, $xid) {   
+  
+   /*
+   debug ("  api_key = $api_key");   
+   debug ("  call_id = $call_id");
+//   debug ("  sig = $sig");
+   debug ("  v = $v");
+   debug ("  session_key = $session_key");
+   debug ("xid = $xid");
+   debug ("object_id = $object_id");
+   debug ("  format = $format");
+   debug (" callback = $callback");
+   */
+
+   $result = $facebook->api_client->comments_get($xid);
+   var_dump($result);
+   debug ("comments_get() result = ^^");
+   return $result;
+   
+}
+
+
+/** 
+ *   input: 
+ *    $URL -- a full string to scrape the json data from
+ *  output: 
+ *    a json-decoded php object.
+**/
+function pull_json ($url) { 
+   
+   if (DEFAULT_DEBUG_MODE) {
+      echo "<p class='request'>[PULL_JSON], URL = <a href='$url'>$url</a></p>";
+   }
+   $handle = fopen($url, "rb");
+   $doc = stream_get_contents($handle);
+   return json_decode($doc);
+}
+
+function get_entry_api_url ($xid) {
+   return ROOT_TYPEPAD_API_URL . '/assets/' . $xid . '.json';
+}
+
+
+function get_comments_api_url ($xid) {
+     return ROOT_TYPEPAD_API_URL . '/assets/' . $xid . '/comments.json';
+}
 ?>

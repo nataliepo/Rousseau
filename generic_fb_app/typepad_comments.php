@@ -1,13 +1,76 @@
+<html>
+   <head>
+      <title>TypePad Comment Testing.</title>
+      
+   <link rel="stylesheet" href="debug_styles.css" type="text/css" />
+
+   
 <?php
 
 require_once ('rousseau-includes/rousseau-utilities.php');
 
-
-$facebook = start_fb_session();
-start_db_connection();
+//start_db_connection();
 $url = "";
 $post = "";
 
+debug ("Only supporting GET requests right now.");
+
+$xid = '6a00e5539faa3b88330120a7b004e2970b';
+$url = 'http://www.typepad.com';
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   $xid = $_GET['xid'];
+   $url = $_GET['url'];
+}
+else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   $xid = $_POST['xid'];
+   $url = $_POST['url'];
+}
+
+
+
+$params = array();
+$params['xid']  = $xid;
+$params['permalink'] = $url;
+$entry = new Post($params);
+
+$comments = $entry->comments();
+
+//$tp_comment_listing = new TPCommentListing($entry->xid);
+
+?>
+
+</head>
+<body>
+   
+<h2>TypePad Comment Listing.</h2>
+
+<?php
+
+
+//$comments = $tp_comment_listing->tp_comments;
+
+foreach ($comments as $comment){
+echo
+'   <div class="comment-outer">
+      <div class="comment-avatar">
+         <a href="' . $comment->author->profile_url . '"><img class="avatar" src="' . $comment->author->avatar. '" /></a>
+      </div>
+      <div class="comment-contents">
+         <a href="' . $comment->author->profile_url . '">' . $comment->author->display_name . '</a>
+         wrote <p>' . $comment->content . '</p> on ' . //$comment->time() . '<br />' 
+      '</div>
+   </div>';
+}
+
+
+
+//clean_up();
+
+
+
+
+/*
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    if (array_key_exists('url', $_GET)) {
       $url = $_GET['url'];
@@ -106,8 +169,7 @@ function print_as_table($array) {
    
    
 */   
-clean_up();
 
-  ?>
   
    
+?>

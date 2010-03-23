@@ -31,7 +31,7 @@ echo "
             $entry->content . "
             
             <div class='commentable_item'>
-               <fb:comments xid='rousseau-" . $entry->site_id . "-" . $entry->id . "' can_post='true' candelete='false'>
+               <fb:comments xid='" . $entry->xid .  "' can_post='true' candelete='false'>
                </fb:comments>
             </div>
 

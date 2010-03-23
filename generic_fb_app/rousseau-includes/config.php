@@ -8,6 +8,7 @@
    define ("DB_PWD", "four");
    define ("DB_USER", "rousseau");
 
+   define ("ROOT_TYPEPAD_API_URL", "http://api.typepad.com");
 
    define ("DEFAULT_DEBUG_MODE", 1);
 ?>
