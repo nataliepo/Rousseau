@@ -18,7 +18,7 @@ function start_fb_session () {
    }
    
    //global $facebook, $session_key, $api_key, $call_id, $format, $v;
-   $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_SECRET);
+   $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
    $session_key = md5($facebook->api_client->session_key);
    session_id($session_key);
    session_start(); 
@@ -57,7 +57,6 @@ function grab_sites_url ($site_id) {
    $url = mysql_result($result, 0, "content_url");
    return $url;
 }
-
 
 
 /*

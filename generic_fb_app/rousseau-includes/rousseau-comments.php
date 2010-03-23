@@ -12,20 +12,40 @@ class Comment {
    
    function Comment ($source, $params) {
       // source must be defined.
-      if ($source == "TypePad") {
-//         if (array_key_exists('xid', $params))
-      }
+      
+      $this->source = $source;
+
       
       if (array_key_exists('json', $params)) {
-
          $this->content = $params['json']->content;
          $this->xid = $params['json']->urlId;
+         
+         
+         $date =  new DateTime($params['json']->published);
+         $this->timestamp = print_timestamp($date);
          
          $author_params = array();
          $author_params['json'] = $params['json']->author;
          $this->author = new Author($author_params);
       }
+      
+      else {
+         // otherwise, use the param keys to insert the comment data.
+          $keys = array('content', 'timestamp');
+          foreach ($keys as $key) {
+             if (array_key_exists($key, $params)) {
+                $this->$key = $params[$key];
+             }
+          }
+          
+          // check if there's an author.
+          if (array_key_exists('author', $params)) {
+             $this->author = new Author($params['author']);
+          }
+      }
+
    }
+   
 }
 
 
@@ -46,7 +66,35 @@ class TPCommentListing {
          $i++;
       }
    }
+}
+
+class FBCommentListing {
+   var $fb_comments;
    
+   function FBCommentListing ($fb_id) {
+      $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
+      $comments = $facebook->api_client->comments_get($fb_id);
+   
+      $num_comments = sizeof($comments);
+      
+      for ($i = 0; $i < $num_comments; $i++) {
+         $user_record = $facebook->api_client->users_getInfo($comments[$i]['fromid'], 
+                                    'last_name, first_name, pic_with_logo, profile_url');
+
+         $param = array();
+         $param['content'] = $comments[$i]['text'];
+         $param['timestamp'] = $comments[$i]['time'];
+         
+         $author = array();
+         $author['displayName'] = $user_record[0]['first_name'] . ' ' . $user_record[0]['last_name'];
+         $author['profilePageUrl'] = $user_record[0]['profile_url'];
+         $author['avatar'] = $user_record[0]['pic_with_logo'];
+         
+         $param['author'] = $author;
+         
+         $this->fb_comments[$i] = new Comment("Facebook", $param);
+      }
+   }
 }
 
 ?>

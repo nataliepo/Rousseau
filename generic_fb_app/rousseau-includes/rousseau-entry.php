@@ -9,13 +9,13 @@ class Post {
    var $site_id;
    var $permalink;
    var $blog_xid;
+   var $fb_id;
 
    var $content;
    var $timestamp;
    
    var $comment_listing;
-   
-   
+      
    function Post ($params) {
       
       // if an XID and URL are passed, it's a TypePad post.
@@ -31,20 +31,51 @@ class Post {
          
          $entry_json = pull_json(get_entry_api_url($params['xid']));
 
-         $this->comment_listing = array();
       }
+      
+      if (array_key_exists('fb_id', $params)) {
+         $this->fb_id = $params['fb_id'];
+      }
+      
+      $this->comment_listing = array();
+      
+      
+      
    }
    
    
    function comments() {
       if (!$this->comment_listing) {
-         $tp_listing = new TPCommentListing($this->xid);
-         $tp_comment_listing = $tp_listing->tp_comments;
-         $new_listing = array_merge($this->comment_listing, $tp_comment_listing);
-         $this->comment_listing = $new_listing;
+         
+         // Pull the TP Comment listing.
+         if ($this->xid) {
+            $tp_listing = new TPCommentListing($this->xid);
+            $tp_comment_listing = $tp_listing->tp_comments;
+            $new_listing = array_merge($this->comment_listing, $tp_comment_listing);
+            $this->comment_listing = $new_listing;
+         }
+         
+         if ($this->fb_id) {
+            $fb_listing = new FBCommentListing($this->fb_id);
+            $new_listing = array_merge($this->comment_listing, $fb_listing->fb_comments);
+            $this->comment_listing = $new_listing;
+         }
       }
+      
+      $this->sort_comments();
           
       return $this->comment_listing;
+   }
+   
+   function sort_comments () {
+      $final_array = array();
+      foreach ($this->comment_listing as $comment) {
+         $final_array[$comment->timestamp] = $comment;
+      }
+      
+      krsort($final_array);
+      
+      $this->comment_listing = $final_array;
    }
    
    

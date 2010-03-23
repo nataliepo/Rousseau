@@ -10,6 +10,10 @@
 require_once ('rousseau-includes/rousseau-utilities.php');
 
 //start_db_connection();
+$facebook = start_fb_session();
+
+
+
 $url = "";
 $post = "";
 
@@ -25,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $xid = $_POST['xid'];
    $url = $_POST['url'];
+   $fb_prefix = $_POST['fb_prefix'];   
 }
 
 
@@ -32,12 +37,13 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $params = array();
 $params['xid']  = $xid;
 $params['permalink'] = $url;
+
+if (array_key_exists('fb_prefix', $_GET)) {
+   $params['fb_id'] = $_GET['fb_prefix'] . $xid;   
+}
 $entry = new Post($params);
 
 $comments = $entry->comments();
-
-//$tp_comment_listing = new TPCommentListing($entry->xid);
-
 ?>
 
 </head>
@@ -47,9 +53,6 @@ $comments = $entry->comments();
 
 <?php
 
-
-//$comments = $tp_comment_listing->tp_comments;
-
 foreach ($comments as $comment){
 echo
 '   <div class="comment-outer">
@@ -58,7 +61,7 @@ echo
       </div>
       <div class="comment-contents">
          <a href="' . $comment->author->profile_url . '">' . $comment->author->display_name . '</a>
-         wrote <p>' . $comment->content . '</p> on ' . //$comment->time() . '<br />' 
+         wrote <p>' . $comment->content . '</p> on ' . $comment->timestamp . '<br />' .
       '</div>
    </div>';
 }

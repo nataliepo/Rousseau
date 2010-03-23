@@ -1,7 +1,14 @@
 <?php
 
+/*
+These are for the vanilla rousseau demos.
    define ("FACEBOOK_API_KEY", "feb21f78c79d85b2d0c715dd1e12f947");
    define ("FACEBOOK_SECRET", "5b5a2bf5c965e757557e8e797c89c933");
+   */
+   
+   /* these are for the tp_blog_demo variables. */
+   define ("FACEBOOK_API_KEY", "ee8e855f33bdb1f255dad718eaf65342");
+   define ("FACEBOOK_API_SECRET", "b97215368c83caedaeab91922d407f51");
    
    define ("DB_NAME", "rousseau");
    define ("DB_HOST", "localhost");
