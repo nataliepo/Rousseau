@@ -15,8 +15,6 @@ function get_contents ($entry) {
 
 function start_fb_session ($api_key, $api_secret) {
    
-   debug ("[start_fb_session] api_key = $api_key, secret = $api_secret");
-   
    if (array_key_exists('fb_sig_profile_user', $_POST)) {
       $user = $_POST['fb_sig_profile_user'];
    }
@@ -239,5 +237,12 @@ function get_fb_date($timestamp) {
 }
 
 
-
+function print_as_table($array) {
+   print "<table border='1'><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";
+   foreach(array_keys($array) as $key) {
+      print "<tr><td>$key</td><td>$array[$key]</td></tr>";
+   }
+   print "</tbody></table>";
+ }
+ 
 ?>

@@ -21,15 +21,23 @@ require_once ('rousseau-includes/rousseau-utilities.php');
 
 
 start_db_connection();
-
-
-//$post = new Post($_POST);
-$post = new Post($_GET);
+$post = new Post($_POST);
+//$post = new Post($_GET);
 $comments = $post->comments();
 
 
+debug ("<h2>GET table:</h2>");
+print_as_table($_GET);
+  
+debug("<h2>POST table:</h2>");
+print_as_table($_POST);
 
-if ($_GET['HTML']) {
+
+
+
+
+//if ($_GET['HTML']) {
+if ($_POST['HTML']) {
    foreach ($comments as $comment){
    echo
    '   <div class="comment-outer">
@@ -77,21 +85,7 @@ else {
      }';   
 }
 
-/*
-function print_as_table($array) {
-      print "<table><thead><tr><th>Key</th><th>Value</th></tr></thead><tbody>";
-      foreach(array_keys($array) as $key) {
-          print "<tr><td>$key</td><td>$array[$key]</td></tr>";
-      }
-      print "</tbody></table>";
-  }
-  */
-  
-//  debug ("GET table:</h2>");
-//  print_as_table($_GET);
-  
-//  debug("<h2>POST table:</h2>");
-//  print_as_table($_POST);
+
   
 /*   
   

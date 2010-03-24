@@ -8,17 +8,17 @@ class Post {
    var $permalink;
    var $blog_xid;
    var $fb_id;
+   var $timestamp;
    
    var $facebook;
    
    var $comment_listing;
+   
+   var $content;
       
-   function Post ($params) {
-      
-      debug ("[POST::POST]");
-      
+   function Post ($params) {      
       // otherwise, use the param keys to insert the author data.
-      $keys = array('xid', 'blog_xid', 'fb_id', 'permalink');
+      $keys = array('xid', 'blog_xid', 'fb_id', 'permalink', 'content', 'timestamp');
       foreach ($keys as $key) {
          if (array_key_exists($key, $params)) {
             $this->$key = $params[$key];
@@ -27,8 +27,6 @@ class Post {
             $this->$key = 0;
          }
       }
-      
-      
       
       // if an XID and URL are passed, it's a TypePad post.
 //      if (array_key_exists('xid', $params)) {
@@ -47,33 +45,73 @@ class Post {
          $this->fb_id = $params['fb_prefix'] . $params['xid'];   
       }
       
-//      if (array_key_exists('blog_xid', $params) &&
-//          array_key_exists('permalink', $params)) {
          if ($this->blog_xid and $this->permalink) {
-//         $json = '{"permalinkUrl":"' . $params['permalink'] . '"}';
             $json = '{"permalinkUrl":"' . $this->permalink . '"}';
-   
-         
+            
          $post_url = get_tpconnect_external_assets_api_url($this->blog_xid);
          $events = post_json($post_url, $json);
-      //      var_dump($events);
          $this->xid = $events->asset->urlId;
       }
       
-      
       $this->comment_listing = array();
       
-      if ($this->permalink) {
-         // check if this is a FB post.
-         debug ("[Post::Post] permalink = $this->permalink");
-         $this->site_id = lookup_fb_site($this->permalink);
+//         $this->site_id = lookup_fb_site($this->permalink);
+      
+      
+      if ($this->content) {
+         $this->content = urldecode($this->content);
       }
+
+      
+      $this->update_post_content();
+
       
       // IF we have a parent site, we should start a FB session.
       if ($this->site_id) {
          $this->facebook = start_fb_session(get_fb_api_key($this->site_id), get_fb_api_secret($this->site_id));
       }
+   }
+   
+   
+   function update_post_content() {
+      $query = "SELECT * FROM posts WHERE posts_permalink='" . $this->permalink . "' LIMIT 1;";
       
+      $result = mysql_query($query); 
+
+      if (!mysql_num_rows($result)) {
+         // This URL doesn't exist, so we'll make a new row.
+//         $query = "insert into posts values('', )";
+         debug ("[update_post_content] POST WAS NOT FOUND.");
+         $escaped_content = str_replace("'", "\'", $this->content);
+         $site_id = find_parent_site($this->permalink);
+         $create_query = "INSERT INTO posts (posts_content,posts_site_id,posts_timestamp,posts_permalink,posts_xid, posts_blog_xid) " . 
+                     "VALUES (" . 
+                        "'" . $escaped_content . "'," . 
+                        $site_id . "," . 
+                        "'" . $this->timestamp . "'," . 
+                        "'" . $this->permalink . "'," . 
+                        "'" . $this->xid . "'," . 
+                        "'" . $this->blog_xid . "'" . 
+                     ");";
+//         debug ("[new row] query = $query");
+         $result = mysql_query($create_query);
+         
+      } 
+      else {
+
+         $this->id = mysql_result($result, 0, "posts_id");
+         $this->site_id = mysql_result($result, 0, "posts_site_id");
+         
+         $content = mysql_result($result, 0, "posts_content");
+
+         // if the text has changed, update the db.
+         if (strlen($content) != strlen($this->content)) {
+            $escaped_content = str_replace("'", "\'", $this->content);
+            $query = "UPDATE posts SET posts_content ='" . $escaped_content . "' WHERE posts_id=" . $this->id . ";";
+            $result = mysql_query($query); 
+         }
+      }
+
    }
    
    
@@ -199,4 +237,10 @@ function lookup_fb_site($permalink) {
    return mysql_result($result, 0, "posts_site_id");   
 }
 
+function find_parent_site($permalink) {
+   $base_url = preg_match('(http://[^/])', $permalink)
+   $query = "SELECT * FROM sites WHERE sites_url='" . $permalink . "' LIMIT 1;";
+      
+      $result = mysql_query($query);
+}
 ?>
