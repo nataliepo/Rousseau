@@ -28,18 +28,6 @@ class Post {
          }
       }
       
-      // if an XID and URL are passed, it's a TypePad post.
-//      if (array_key_exists('xid', $params)) {
-        if ($this->xid && $this->permalink) {
-           debug ("[Post::Post] INSERT DB QUERY HERE...");
-/*           $this->id = 0;
-           $this->xid = $params['xid'];
-         $this->permalink = $params['permalink'];
-         $this->blog_xid = 0;
-         //$entry_json = pull_json(get_entry_api_url($params['xid']));
-*/
-      }
-      
       if (array_key_exists('fb_prefix', $params) &&
          array_key_exists('xid', $params)) {
          $this->fb_id = $params['fb_prefix'] . $params['xid'];   
@@ -78,10 +66,8 @@ class Post {
       
       $result = mysql_query($query); 
 
+      // This URL doesn't exist, so we'll make a new row.
       if (!mysql_num_rows($result)) {
-         // This URL doesn't exist, so we'll make a new row.
-//         $query = "insert into posts values('', )";
-         debug ("[update_post_content] POST WAS NOT FOUND.");
          $escaped_content = str_replace("'", "\'", $this->content);
          $site_id = find_parent_site($this->permalink);
          $create_query = "INSERT INTO posts (posts_content,posts_site_id,posts_timestamp,posts_permalink,posts_xid, posts_blog_xid) " . 
@@ -93,7 +79,6 @@ class Post {
                         "'" . $this->xid . "'," . 
                         "'" . $this->blog_xid . "'" . 
                      ");";
-//         debug ("[new row] query = $query");
          $result = mysql_query($create_query);
          
       } 
@@ -238,9 +223,18 @@ function lookup_fb_site($permalink) {
 }
 
 function find_parent_site($permalink) {
-   $base_url = preg_match('(http://[^/])', $permalink)
-   $query = "SELECT * FROM sites WHERE sites_url='" . $permalink . "' LIMIT 1;";
-      
-      $result = mysql_query($query);
+   preg_match('|(http://[^/]+)|', $permalink, $matches);
+   $base_url = $matches[0];
+
+   $query = "SELECT * FROM sites WHERE sites_url like '" . $base_url . "%' LIMIT 1;";
+
+   $result = mysql_query($query);
+   
+   if (!mysql_num_rows($result)) {
+      return 0;
+   }
+
+   return mysql_result($result, 0, "sites_id");
+
 }
 ?>

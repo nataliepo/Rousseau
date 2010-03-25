@@ -23,15 +23,16 @@ require_once ('rousseau-includes/rousseau-utilities.php');
 start_db_connection();
 $post = new Post($_POST);
 //$post = new Post($_GET);
+
 $comments = $post->comments();
 
-
+/*
 debug ("<h2>GET table:</h2>");
 print_as_table($_GET);
   
 debug("<h2>POST table:</h2>");
 print_as_table($_POST);
-
+*/
 
 
 
