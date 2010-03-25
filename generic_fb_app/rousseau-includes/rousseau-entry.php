@@ -18,7 +18,7 @@ class Post {
       
    function Post ($params) {      
       // otherwise, use the param keys to insert the author data.
-      $keys = array('xid', 'blog_xid', 'fb_id', 'permalink', 'content', 'timestamp');
+      $keys = array('xid', 'blog_xid', 'fb_id', 'permalink', 'content');
       foreach ($keys as $key) {
          if (array_key_exists($key, $params)) {
             $this->$key = $params[$key];
@@ -70,11 +70,12 @@ class Post {
       if (!mysql_num_rows($result)) {
          $escaped_content = str_replace("'", "\'", $this->content);
          $site_id = find_parent_site($this->permalink);
+         $r_time = new RousseauDate($time());
          $create_query = "INSERT INTO posts (posts_content,posts_site_id,posts_timestamp,posts_permalink,posts_xid, posts_blog_xid) " . 
                      "VALUES (" . 
                         "'" . $escaped_content . "'," . 
                         $site_id . "," . 
-                        "'" . $this->timestamp . "'," . 
+                        "'" . $r_time->print_sql_time() . "'," . 
                         "'" . $this->permalink . "'," . 
                         "'" . $this->xid . "'," . 
                         "'" . $this->blog_xid . "'" . 

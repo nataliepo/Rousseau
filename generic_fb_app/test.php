@@ -1,9 +1,12 @@
 <?php
 
-
-   $permalink = 'http://mtcs-demo.apperceptive.com/testmt/animals/2010/03/sloth.php';
-   preg_match('|(http://[^/]+)|', $permalink, $matches);
+   require_once('rousseau-includes/rousseau-utilities.php');
    
-   var_dump($matches);
+   $right_now = time();
+   
+   $r_date = new RousseauDate($right_now);
+   
+   echo "Now is: " . $r_date->print_readable_time();
+   echo "SQL-readable now is: " . $r_date->print_sql_time();
 
 ?>

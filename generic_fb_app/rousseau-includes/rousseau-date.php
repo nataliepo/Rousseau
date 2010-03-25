@@ -62,9 +62,16 @@ class RousseauDate {
          $this->min;
     }
     
-  
+   function print_sql_time() {
+      //2010-03-23 13:00:25
+      return $this->year . "-" . $this->month . "-" . $this->day . " " . $this->hour . ":" . 
+         $this->min . ":" . $this->sec;
+   }
     
- }
+}
+
+   
+
 
 
 ?>
