@@ -28,11 +28,6 @@ class Post {
          }
       }
       
-      if (array_key_exists('fb_prefix', $params) &&
-         array_key_exists('xid', $params)) {
-         $this->fb_id = $params['fb_prefix'] . $params['xid'];   
-      }
-      
          if ($this->blog_xid and $this->permalink) {
             $json = '{"permalinkUrl":"' . $this->permalink . '"}';
             
@@ -48,6 +43,11 @@ class Post {
       }
 
       if (!array_key_exists('READ_ONLY', $params)) {
+         if (array_key_exists('fb_prefix', $params) &&
+            array_key_exists('xid', $params)) {
+            $this->fb_id = $params['fb_prefix'] . $params['xid'];   
+         }
+
          $this->update_post_content();
          
          // IF we have a parent site, we should start a FB session.
@@ -65,6 +65,7 @@ class Post {
 
       // This URL doesn't exist, so we'll make a new row.
       if (!mysql_num_rows($result)) {
+         debug("[update_post_content] Could not find this row in the posts table.");
          $escaped_content = str_replace("'", "\'", $this->content);
          $this->site_id = find_parent_site($this->permalink);
          $r_time = new RousseauDate(time());
@@ -79,8 +80,10 @@ class Post {
                         "'" . $this->permalink . "'," . 
                         "'" . $this->xid . "'," . 
                         "'" . $this->blog_xid . "'," . 
-                        $this->fb_id .
+                        "'" . $this->fb_id . "'" .
                      ");";
+                     
+         debug("[update_post_content] Insert query is $create_query");
          $result = mysql_query($create_query);
          
       } 
@@ -88,7 +91,7 @@ class Post {
 
          $this->id = mysql_result($result, 0, "posts_id");
          $this->site_id = mysql_result($result, 0, "posts_site_id");
-         
+         $this->fb_id = mysql_result($result, 0, "posts_fb_id");
          $content = mysql_result($result, 0, "posts_content");
 
          // if the text has changed, update the db.
@@ -101,7 +104,7 @@ class Post {
 
    }
    
-   
+
    function comments() {
       if (!$this->comment_listing) {
          

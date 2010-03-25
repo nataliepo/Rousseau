@@ -13,6 +13,7 @@ class Comment {
    function Comment ($source, $params) {
       // source must be defined.
       
+      // Source can be TypePad or Facebook.
       $this->source = $source;
       
       if (array_key_exists('json', $params)) {
