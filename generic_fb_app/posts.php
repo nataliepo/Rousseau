@@ -1,6 +1,6 @@
 <?php 
 
-require_once ('utilities.php');
+require_once('rousseau-includes/rousseau-utilities.php');
 
 
 start_db_connection();
@@ -15,10 +15,13 @@ $events = grab_recent_events($site_id);
 
 
 echo '{
+   "api_key" : "' . get_fb_api_key($events[0]->site_id) . '",
+   "api_secret" : "' . get_fb_api_secret($events[0]->site_id)  . '",
    "entries" : [
 ';
 
 $num_events = sizeof($events);
+
 //foreach ($events as $event) {
 for ($i = 0; $i < $num_events; $i++) {
 echo '
@@ -27,7 +30,7 @@ echo '
       "site_id": "' . $events[$i]->site_id . '",
       "content": "' . $events[$i]->content . '",
       "timestamp": "' . $events[$i]->timestamp . '",
-      "xid": "' . $events[$i]->get_fb_xid() . '"
+      "xid": "' . $events[$i]->fb_id . '"
    }';
    if ($i != ($num_events -1)) {
       echo ",";

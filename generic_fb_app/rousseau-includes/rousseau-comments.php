@@ -58,6 +58,8 @@ class TPCommentListing {
    
    
    function TPCommentListing($entry_xid) {
+      $tp_comments = array();
+      
       $events = pull_json(get_comments_api_url($entry_xid));
 
       $i = 0;    
@@ -70,18 +72,28 @@ class TPCommentListing {
          $i++;
       }
    }
+   
+   function comments () {
+       if (!sizeof($this->tp_comments)) {
+          return array();
+       }
+
+       return $this->tp_comments;
+    }
 }
 
 class FBCommentListing {
    var $fb_comments;
    
    function FBCommentListing ($fb_id, $facebook) {
-//      $facebook = new Facebook(FACEBOOK_API_KEY, FACEBOOK_API_SECRET);
-      $comments = $facebook->api_client->comments_get($fb_id);
 
+      // initialize an empty array.
+      $fb_comments = array();
+      
+      $comments = $facebook->api_client->comments_get($fb_id);
       $num_comments = sizeof($comments);
 
-      if (!$num_comments) {
+      if ($comments == "") {
          return;
       }
       
@@ -103,6 +115,14 @@ class FBCommentListing {
          
          $this->fb_comments[$i] = new Comment("Facebook", $param);
       }
+   }
+
+   function comments () {
+      if (!sizeof($this->fb_comments)) {
+         return array();
+      }
+      
+      return $this->fb_comments;
    }
 }
 

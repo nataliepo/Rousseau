@@ -244,5 +244,61 @@ function print_as_table($array) {
    }
    print "</tbody></table>";
  }
+
+ function get_fb_api_key($site_id) {
+    $query = "select * from sites where sites_id=" . $site_id . " limit 1;";
+    $result = mysql_query($query); 
+
+    if (!mysql_num_rows($result)) {
+       return 0;
+    } 
+
+    // otherwise, there was a result.
+    return mysql_result($result, 0, "sites_fb_api_key");
+ }
  
+ 
+ function get_fb_api_secret($site_id) {
+    $query = "select * from sites where sites_id=" . $site_id . " limit 1;";
+    $result = mysql_query($query); 
+
+    if (!mysql_num_rows($result)) {
+       return 0;
+    } 
+
+    // otherwise, there was a result.
+    return mysql_result($result, 0, "sites_fb_secret");
+ }
+
+
+ function lookup_fb_site($permalink) {
+    $query = "select * from posts where posts_permalink='" . $permalink . "' limit 1;";
+    $result = mysql_query($query); 
+
+    if (!mysql_num_rows($result)) {
+       debug ("NATALIE, INSERT THIS PERMALINK INTO THE POSTS TABLE.");
+       return 0;
+    } 
+
+    // otherwise, there was a result.
+    return mysql_result($result, 0, "posts_site_id");   
+ }
+
+
+
+ function find_parent_site($permalink) {
+    preg_match('|(http://[^/]+)|', $permalink, $matches);
+    $base_url = $matches[0];
+
+    $query = "SELECT * FROM sites WHERE sites_url like '" . $base_url . "%' LIMIT 1;";
+
+    $result = mysql_query($query);
+
+    if (!mysql_num_rows($result)) {
+       return 0;
+    }
+
+    return mysql_result($result, 0, "sites_id");
+
+ } 
 ?>
