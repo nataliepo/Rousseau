@@ -38,7 +38,8 @@ print_as_table($_POST);
 
 
 //if ($_GET['HTML']) {
-if ($_POST['HTML']) {
+if (array_key_exists('HTML', $_POST) && 
+   ($_POST['HTML'])) {
    foreach ($comments as $comment){
    echo
    '   <div class="comment-outer">

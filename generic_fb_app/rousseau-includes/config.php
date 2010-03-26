@@ -26,5 +26,5 @@
 
    define ("ROOT_TYPEPAD_API_URL", "http://api.typepad.com");
 
-   define ("DEFAULT_DEBUG_MODE", 0);
+   define ("DEFAULT_DEBUG_MODE", 1);
 ?>
