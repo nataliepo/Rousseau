@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+body {font-family: Lucida Grande, Lucida, Helvetica, sans-serif; color:#666;}
+
+a, a:link {color:#36c;text-decoration: none;}
+a:hover {text-decoration: underline;background: #ff9;}
+a:visited {color:#369}
+
+div#container {width: 900px; margin: 0 auto;}
+
+h1, h2, h3, h4, h5, h6 {font-family: Helvetica, Arial, sans-serif; font-weight: bold; color:#3366CC}
+
+h1 {font-size: 40px;margin-bottom: 35px;}
+h2 {font-size: 32px;margin-bottom: 20px;}
+h3 {font-size: 28px;margin-bottom: 20px;}
+h4 {font-size: 22px;margin-bottom: 15px;}
+h5 {font-size: 18px;margin-bottom: 15px;}
+h6 {font-size: 15px;margin-bottom: 10px;}
+
+a img {border: 0}
+
+
+div#paper-title {
+	height: 0;
+	display: block;
+	overflow:hidden;
+	float: left;
+	padding-top: 150px;
+	width: 900px;
+	background: url(http://dev1.apperceptive.com/squeeze/images/header.gif) top left no-repeat;
+}
+
+div#content {clear: left}
+
+div#main{padding-top: 20px; width: 575px; margin: 0 25px 0 0;float: left}
+
+div#sidebar {padding-top: 20px;float: left; width: 300px;}
+div#footer {border-top: 10px solid #efefef; clear: both; padding-top: 15px; text-align: center; font-size: 11px}
+
+div.story, div.story p, p {font-size: 12px; line-height: 22px}
+
+div#sidebar div.ad {
+	background: #efefef;
+}
+div#sidebar div.ad a{
+	
+}
+
+div#sidebar div.ad img{
+	padding: 10px 0;
+	display: block;
+	margin: 0 auto;
+}
+
+div.sidebar {
+	width: 280px;
+	float: right;
+	padding-top: 30px;
+}
+
+
+
+
+.tier1 {
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #dedede;
+	margin-bottom: 20px;
+}
+.tier4 {
+	border-top: 1px dotted #dedede;
+	clear: both;
+	padding-top: 10px;
+}
+.notTop td {
+   padding: 2pt;
+   margin: 1px 1px 1px 1px;
+}
+
+ul.nobullet li {
+   list-style-type: none; 
+}
+ul.nobullet li a{
+   text-decoration: none;
+}
+ul.nobullet li a:hover;{
+   text-decoration: underline;
+}
+
+.comment-avatar {
+  float: left;
+  padding: 2px; 
+  display: inline;
+}
+
+.comment-contents {
+   display: inline;
+   overflow: auto;
+   width: 600px;
+}
+
+#rousseaus-comments {
+}
+.comment-outer {
+   margin-top: 15px;
+}
+
+img.avatar {
+   border: 0 none;
+   max-height: 55px;
+   max-width: 55px;
+   padding: 2pt;
+}
+.comment-datetime {
+   clear: right;
+   float: right;
+   font-size: 10pt;
+}
