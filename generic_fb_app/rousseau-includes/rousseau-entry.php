@@ -128,14 +128,25 @@ class Post {
    }
    
    function sort_comments () {
-      $final_array = array();
+      $final_array = array();      
+      $timestamps_array = array();
+      
       foreach ($this->comment_listing as $comment) {
          $final_array[$comment->timestamp->print_sortable_time()] = $comment;
+         $timestamps_array[] = $comment->timestamp->print_sortable_time();
+         
+      }    
+//      krsort($final_array);
+//      asort($final_array);
+   
+      sort($timestamps_array);
+
+      $this->comment_listing = array();
+
+      
+      for ($i = 0; $i < sizeof($timestamps_array); $i++) {
+         $this->comment_listing[] = $final_array[$timestamps_array[$i]];
       }
-      
-      krsort($final_array);
-      
-      $this->comment_listing = $final_array;
    }
 }
 

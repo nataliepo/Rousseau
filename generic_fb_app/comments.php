@@ -22,8 +22,6 @@ require_once ('rousseau-includes/rousseau-utilities.php');
 
 start_db_connection();
 $post = new Post($_POST);
-//$post = new Post($_GET);
-
 $comments = $post->comments();
 
 /*
@@ -36,10 +34,8 @@ print_as_table($_POST);
 
 
 
-
 //if ($_GET['HTML']) {
-if (array_key_exists('HTML', $_POST) && 
-   ($_POST['HTML'])) {
+if ($_POST['HTML']) {
    foreach ($comments as $comment){
    echo
    '   <div class="comment-outer">
@@ -48,7 +44,8 @@ if (array_key_exists('HTML', $_POST) &&
          </div>
          <div class="comment-contents">
             <a href="' . $comment->author->profile_url . '">' . $comment->author->display_name . '</a>
-            wrote <p>' . $comment->content . '</p> on ' . $comment->timestamp->print_readable_time() . '<br />' .
+            wrote <p>' . $comment->content . '</p>' . 
+            '<span class="comment-datetime">' . $comment->timestamp->print_readable_time() . '</span><br />' .
          '</div>
       </div>';
    }

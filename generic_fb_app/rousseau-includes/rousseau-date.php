@@ -36,7 +36,7 @@ class RousseauDate {
        $this->year   = $matches[1];
        $this->month  = $matches[2];
        $this->day    = $matches[3];
-       $this->hour   = $matches[4];
+       $this->hour   = $matches[4] - 4;
        $this->min    = $matches[5];
        $this->sec    = $matches[6];
     }
@@ -58,7 +58,7 @@ class RousseauDate {
     }
     
     function print_readable_time() {
-       return $this->month . " " . $this->day . ", " . $this->year . " at " . $this->hour . ":" .
+       return $this->month . "/" . $this->day . "/" . $this->year . " at " . $this->hour . ":" .
          $this->min;
     }
     

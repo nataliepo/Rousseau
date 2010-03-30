@@ -87,14 +87,10 @@ class FBCommentListing {
    var $fb_comments;
    
    function FBCommentListing ($fb_id, $facebook) {
-      
+
       // initialize an empty array.
       $fb_comments = array();
-
-      if (!$facebook) {
-         return;
-      }
-
+      
       $comments = $facebook->api_client->comments_get($fb_id);
       $num_comments = sizeof($comments);
 
