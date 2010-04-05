@@ -118,3 +118,8 @@ img.avatar {
    float: right;
    font-size: 10pt;
 }
+
+.login_box {
+   float: right;
+   text-align: right;
+}

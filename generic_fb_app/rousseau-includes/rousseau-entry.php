@@ -34,6 +34,7 @@ class Post {
          $post_url = get_tpconnect_external_assets_api_url($this->blog_xid);
          $events = post_json($post_url, $json);
          $this->xid = $events->asset->urlId;
+         debug ("[Post::Post] this XID = " . $this->xid);
       }
       
       $this->comment_listing = array();      

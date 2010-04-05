@@ -5,10 +5,30 @@
     <$mt:Include module="HTML Head"$>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<$mt:Link template="rsd"$>" />
     <title><$mt:BlogName encode_html="1"$></title>
+    
+<?php
+
+   include_once('config.php');
+
+   // Required to verify requests, and save access token.
+   $user_session = new TPSession();
+?>
 </head>
 <body id="<$mt:BlogTemplateSetID$>" class="mt-main-index <$mt:Var name="page_layout"$>">
     <div id="container">
         <div id="container-inner">
+               <div class="login_box">
+                     <?php
+                           if (!$user_session->is_logged_in()) {      
+                              echo "<a href='<mt:blogurl>login.php'>Log In</a><br />";
+                           }
+                           else {
+                              echo "Welcome, <a href='" . $user_session->author->profile_url . "'>" . 
+                                    $user_session->author->display_name . "</a>!<br />";
+                              echo '<a href="index.php?logout=1">Log Out</a><br />';
+                           }
+                     ?>  
+                  </div>           
 
 
             <$mt:Include module="Banner Header"$>
@@ -16,6 +36,8 @@
 
             <div id="content">
                 <div id="content-inner">
+                   
+           
 
 
                     <div id="alpha">
