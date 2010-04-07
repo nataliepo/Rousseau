@@ -26,7 +26,18 @@
 <body id="<$mt:BlogTemplateSetID$>" class="mt-entry-archive <$mt:Var name="page_layout"$>">
     <div id="container">
         <div id="container-inner">
-
+           <div class="login_box">
+                 <?php
+                       if (!$user_session->is_logged_in()) {      
+                          echo "<a href='<mt:blogurl>login.php'>Log In</a><br />";
+                       }
+                       else {
+                          echo "Welcome, <a href='" . $user_session->author->profile_url . "'>" . 
+                                $user_session->author->display_name . "</a>!<br />";
+                          echo '<a href="<mt:blogurl>index.php?logout=1">Log Out</a><br />';
+                       }
+                 ?>  
+              </div>
 
             <$mt:Include module="Banner Header"$>
 
