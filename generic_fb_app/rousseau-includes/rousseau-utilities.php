@@ -84,6 +84,8 @@ function get_resized_avatar ($user, $size) {
     // use the lilypad as a default in case all else fails
     $default_avatar = 'http://up3.typepad.com/6a00d83451c82369e20120a4e574c1970b-50si';
     
+    /*
+     *  The links arrays were deprecated in R51 (04/2010)
     $links_array = $user->links;
     foreach ($links_array as $link) {
         if ($link->rel == "avatar") {
@@ -92,10 +94,13 @@ function get_resized_avatar ($user, $size) {
             } 
         }
     }
+    */
+    if ($user->avatarLink) {
+       return $user->avatarLink->url;
+    }
 
    return $default_avatar;
 }
-
 
 function get_title ($entry) {
     if ($entry->title) {
@@ -151,9 +156,8 @@ function debug ($msg) {
 }
 
 function post_json ($url, $params) {
-   if (DEFAULT_DEBUG_MODE) {
-      echo "<p class='request'>[POST_JSON], URL = <a href='$url'>$url</a></p>";
-   }
+   debug("<p class='request'>[POST_JSON], URL = <a href='$url'>$url</a>, params=$params</p>");
+
 
    $ch = curl_init($url);
    curl_setopt($ch, CURLOPT_POST, 1);
@@ -165,7 +169,9 @@ function post_json ($url, $params) {
    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
           "Content-Type: application/json;"));
 
-   return json_decode(curl_exec($ch));
+   $result = curl_exec($ch);
+   
+   return json_decode($result);
 }
 
 

@@ -21,7 +21,9 @@ require_once ('rousseau-includes/rousseau-utilities.php');
 
 
 start_db_connection();
-$post = new Post($_POST);
+//$post = new Post($_POST);
+$post = new Post($_GET);
+
 $comments = $post->comments();
 
 /*
@@ -34,8 +36,10 @@ print_as_table($_POST);
 
 
 
-//if ($_GET['HTML']) {
-if ($_POST['HTML']) {
+//if (array_key_exists('HTML', $_POST)) {
+if (array_key_exists('HTML', $_GET)) {
+   
+   
    foreach ($comments as $comment){
    echo
    '   <div class="comment-outer">
@@ -84,15 +88,6 @@ else {
      }';   
 }
 
-
-  
-/*   
-  
-   
-   
-*/   
 clean_up();
 
   ?>
-  
-   

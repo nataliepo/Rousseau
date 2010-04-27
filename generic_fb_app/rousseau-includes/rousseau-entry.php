@@ -28,10 +28,11 @@ class Post {
          }
       }
       
-         if ($this->blog_xid and $this->permalink) {
-            $json = '{"permalinkUrl":"' . $this->permalink . '"}';
+      if ($this->blog_xid and $this->permalink) {
+         $json = '{"permalinkUrl":"' . $this->permalink . '"}';
             
          $post_url = get_tpconnect_external_assets_api_url($this->blog_xid);
+
          $events = post_json($post_url, $json);
          $this->xid = $events->asset->urlId;
          debug ("[Post::Post] this XID = " . $this->xid);

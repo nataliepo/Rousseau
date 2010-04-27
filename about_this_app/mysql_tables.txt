@@ -1,0 +1,8 @@
+- Create the Posts table to keep record of the known urls.
+        mysql> create table posts 
+         (posts_id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (posts_id), posts_site_id int, posts_content mediumtext, posts_timestamp datetime, posts_permalink mediumtext, posts_xid varchar(20), posts_blog_xid varchar(50), posts_fb_id mediumtext);
+         
+         
+- Create the Sites table to keep record of which sites can hold FB keys and house comments.
+   mysql> create table sites (sites_id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (sites_id), sites_name varchar(100), sites_fb_api_key varchar(50), sites_url varchar(100), sites_fb_secret varchar(50));
+   
